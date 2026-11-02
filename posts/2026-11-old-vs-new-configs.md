@@ -4,6 +4,21 @@ Most of what goes wrong in a home lab is boring: a memory limit that is too low,
 
 Everything here is sanitized. IP addresses, hostnames, domains, usernames, container and VM IDs, account names, and media titles are replaced with placeholders such as `192.0.2.10` (a documentation-only range) or `node-a`. The snippets are faithful in shape and intent, but they are not copy-paste-ready for your system. Check every value against your own setup before you apply it.
 
+**Contents**
+
+1. [Give a media container enough memory before it starves](#1-give-a-media-container-enough-memory-before-it-starves)
+2. [Stop a failed unit on a host that cannot run it](#2-stop-a-failed-unit-on-a-host-that-cannot-run-it)
+3. [Let a transcoder drop what it cannot copy](#3-let-a-transcoder-drop-what-it-cannot-copy)
+4. [Harden the reverse proxy and the appdata backup together](#4-harden-the-reverse-proxy-and-the-appdata-backup-together)
+   - [4a. Database auth: `trust` to `scram-sha-256`](#4a-database-auth-trust-to-scram-sha-256)
+   - [4b. Default TLS vhost: stop serving the real certificate to every scanner](#4b-default-tls-vhost-stop-serving-the-real-certificate-to-every-scanner)
+   - [4c. Stream proxy: remove the invalid block and the PROXY protocol](#4c-stream-proxy-remove-the-invalid-block-and-the-proxy-protocol)
+   - [4d. File permissions on secret-bearing configs](#4d-file-permissions-on-secret-bearing-configs)
+5. [Keep passwords out of config files](#5-keep-passwords-out-of-config-files)
+6. [Put a hard budget in front of an API you script against](#6-put-a-hard-budget-in-front-of-an-api-you-script-against)
+7. [Check, then apply, for every playbook](#7-check-then-apply-for-every-playbook)
+8. [Takeaways](#takeaways)
+
 ---
 
 ## 1. Give a media container enough memory before it starves
