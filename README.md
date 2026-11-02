@@ -5,6 +5,16 @@ Blog-style notes from a home lab and a few small tools, written as **old vs new*
 ## Posts
 
 - [Old vs New: Seven Config Changes From a Homelab (and the Tools Around It)](posts/2026-11-old-vs-new-configs.md)
+- [A New Firewall Zone Blocked Everything: Staging Network Segmentation Safely](posts/2026-11-staging-a-firewall-zone.md)
+- [NVR Tuning: From a Pegged GPU to a Quiet, Useful Alert Stream](posts/2026-11-nvr-tuning.md)
+- [Tiered Video Storage: Hot on Ceph, Cold on the NAS, and the Stale NFS Handle](posts/2026-11-tiered-video-storage.md)
+- [Rebuilding a Service From Code and Backup: A Rehearsal That Found 13 Bugs](posts/2026-11-rebuild-test.md)
+- [A Disaster-Recovery Drill That Actually Boots the Guests](posts/2026-11-dr-restore-drill.md)
+- [Auto-Patching a Cluster Without Surprising the Household](posts/2026-11-auto-patching-a-cluster.md)
+- [Taming the *arr Stack: Stuck Imports, Duplicate Grabs, and Delay Profiles](posts/2026-11-taming-the-arr-stack.md)
+- [Secrets for Agents: A Scoped Vault, Wrapper Scripts, and Redaction by Default](posts/2026-11-secrets-for-agents.md)
+- [Letting an AI Agent Operate Your Lab: The Guardrails That Kept It Safe](posts/2026-11-guardrails-for-ai-agents.md)
+- [A Local AI Host on an M1 Laptop: Model Serving, Sync, and Tuning](posts/2026-11-local-ai-on-a-laptop.md)
 
 ## How the content was sanitized
 
