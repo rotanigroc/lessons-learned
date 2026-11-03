@@ -15,6 +15,7 @@ Blog-style notes from a home lab and a few small tools, written as **old vs new*
 - [Secrets for Agents: A Scoped Vault, Wrapper Scripts, and Redaction by Default](posts/2026-11-secrets-for-agents.md)
 - [Letting an AI Agent Operate Your Lab: The Guardrails That Kept It Safe](posts/2026-11-guardrails-for-ai-agents.md)
 - [A Local AI Host on an M1 Laptop: Model Serving, Sync, and Tuning](posts/2026-11-local-ai-on-a-laptop.md)
+- [Couch Gaming on Linux: Chasing Audio Dropouts Through Four Layers](posts/2026-11-couch-gaming-audio-dropouts.md)
 
 ## How the content was sanitized
 
