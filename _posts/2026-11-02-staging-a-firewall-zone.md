@@ -1,4 +1,7 @@
-# A New Firewall Zone Blocked Everything: Staging Network Segmentation Safely
+---
+title: "A New Firewall Zone Blocked Everything: Staging Network Segmentation Safely"
+date: 2026-11-02 10:30:00 -0600
+---
 
 **Contents**
 

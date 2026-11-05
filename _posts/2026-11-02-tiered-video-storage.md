@@ -1,4 +1,7 @@
-# Tiered Video Storage: Hot on Ceph, Cold on the NAS, and the Stale NFS Handle
+---
+title: "Tiered Video Storage: Hot on Ceph, Cold on the NAS, and the Stale NFS Handle"
+date: 2026-11-02 10:32:00 -0600
+---
 
 **Contents**
 

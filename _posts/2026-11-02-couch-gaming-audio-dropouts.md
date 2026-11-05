@@ -1,4 +1,7 @@
-# Couch Gaming on Linux: Chasing Audio Dropouts Through Four Layers
+---
+title: "Couch Gaming on Linux: Chasing Audio Dropouts Through Four Layers"
+date: 2026-11-02 23:25:40 -0600
+---
 
 **Contents**
 

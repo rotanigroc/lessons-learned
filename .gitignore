@@ -1,1 +1,6 @@
 Future_Topics.md
+_site/
+.jekyll-cache/
+vendor/
+.bundle/
+Gemfile.lock

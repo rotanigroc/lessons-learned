@@ -1,4 +1,7 @@
-# Letting an AI Agent Operate Your Lab: The Guardrails That Kept It Safe
+---
+title: "Letting an AI Agent Operate Your Lab: The Guardrails That Kept It Safe"
+date: 2026-11-02 10:38:00 -0600
+---
 
 **Contents**
 
@@ -79,7 +82,7 @@ Example: updating the NVR software backs up the compose file, config and a consi
 
 - No `bash -x` on scripts that read secrets.
 - Compare secrets by length or short hash.
-- Wrappers redact by default (see [the secrets post](2026-11-secrets-for-agents.md)).
+- Wrappers redact by default (see [the secrets post]({% post_url 2026-11-02-secrets-for-agents %})).
 - **Never kill a process by name.** A live service the user depends on may own a port. The agent tests on another port and kills only its own PID.
 ## Rule 6: keep output out of the repo
 

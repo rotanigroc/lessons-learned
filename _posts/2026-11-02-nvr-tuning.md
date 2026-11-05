@@ -1,4 +1,7 @@
-# NVR Tuning: From a Pegged GPU to a Quiet, Useful Alert Stream
+---
+title: "NVR Tuning: From a Pegged GPU to a Quiet, Useful Alert Stream"
+date: 2026-11-02 10:31:00 -0600
+---
 
 **Contents**
 
@@ -126,7 +129,7 @@ After: 5 fps, nothing skipped, CPU about 8%, GPU about 9%, detector about 20 ms 
 
 ## The bill comes due
 
-A larger detect frame is also a larger buffer. A day after this tuning, with that camera's resolution raised on top of semantic search, a big face model and plate recognition, the NVR container hit its memory limit and stalled for about 25 minutes. The memory story is in [the first post](2026-11-old-vs-new-configs.md). The tuning here was correct, but it had a cost that I did not budget for.
+A larger detect frame is also a larger buffer. A day after this tuning, with that camera's resolution raised on top of semantic search, a big face model and plate recognition, the NVR container hit its memory limit and stalled for about 25 minutes. The memory story is in [the first post]({% post_url 2026-11-02-old-vs-new-configs %}). The tuning here was correct, but it had a cost that I did not budget for.
 
 ## Takeaways
 

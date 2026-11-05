@@ -1,4 +1,7 @@
-# Old vs New: Seven Config Changes From a Homelab (and the Tools Around It)
+---
+title: "Old vs New: Seven Config Changes From a Homelab (and the Tools Around It)"
+date: 2026-11-02 09:51:46 -0600
+---
 
 Most of what goes wrong in a home lab is boring: a memory limit that is too low, a unit that fails on a box with no hardware for it, a reverse proxy that serves the wrong thing to the wrong host. Fixing it is usually a few lines. This post walks through seven real changes, each shown as the old config next to the new one, with the reason for the change.
 

@@ -1,0 +1,33 @@
+title: lessons-learned
+description: >-
+  Blog-style notes from a home lab and a few small tools, written as old vs new
+  config changes with the reasons behind them. Sanitized for public reading.
+baseurl: /lessons-learned
+url: https://rotanigroc.github.io
+github_username: rotanigroc
+
+theme: minima
+minima:
+  date_format: "%Y-%m-%d %H:%M %Z"
+header_pages:
+  - about.md
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+permalink: /:year/:month/:day/:title/
+timezone: America/Chicago
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - Future_Topics.md

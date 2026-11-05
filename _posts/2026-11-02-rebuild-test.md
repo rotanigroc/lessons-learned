@@ -1,4 +1,7 @@
-# Rebuilding a Service From Code and Backup: A Rehearsal That Found 13 Bugs
+---
+title: "Rebuilding a Service From Code and Backup: A Rehearsal That Found 13 Bugs"
+date: 2026-11-02 10:33:00 -0600
+---
 
 **Contents**
 
@@ -103,7 +106,7 @@ Destroying the old container is **not automated**. The notes spell out the comma
 
 Proved: the container, its Docker setup, cache and timezone settings, the app definition, HA registration and the data all come from code plus a backup with no hand step, and the user-visible downtime was 45 seconds.
 
-Not covered: restoring the same data from the off-site copy (that is a separate drill, covered in [the next post](2026-11-dr-restore-drill.md)) and rebuilding a hypervisor node.
+Not covered: restoring the same data from the off-site copy (that is a separate drill, covered in [the next post]({% post_url 2026-11-02-dr-restore-drill %})) and rebuilding a hypervisor node.
 
 ## Takeaways
 
