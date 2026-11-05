@@ -14,6 +14,7 @@ This repo is a Jekyll site built by GitHub Pages (theme `minima`).
 | `about.md` | About page, including the sanitization rules. |
 | `index.md` | Home page: the post list, newest first. |
 | `_config.yml` | Site settings (date format, permalinks, plugins). |
+| `assets/main.scss`, `_includes/head.html`, `_includes/header.html` | Theme overrides: dark mode (follows the OS, header toggle, saved per browser) with all colours in CSS variables so dark-mode extensions like Dark Reader re-map cleanly. |
 
 Preview locally: `bundle install && bundle exec jekyll serve`, then open http://localhost:4000/lessons-learned/.
 

@@ -1,0 +1,102 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+/* Theme tokens. Dark follows the OS unless the reader picks one with the header toggle
+   (stored as data-theme on <html>). Colours live in CSS variables only, so dark-mode
+   extensions such as Dark Reader can re-map them cleanly. */
+:root {
+  color-scheme: light;
+  --bg: #fdfdfd;
+  --text: #111111;
+  --text-soft: #3a3a3a;
+  --muted: #6b6b6b;
+  --border: #e8e8e8;
+  --border-strong: #cfcfcf;
+  --header-top: #424242;
+  --link: #2a7ae2;
+  --link-visited: #1756a9;
+  --code-bg: #eef;
+  --row-alt: #f7f7f7;
+  --th-bg: #f2f2f2;
+  --hl-comment: #998; --hl-keyword: #000; --hl-string: #d14; --hl-number: #099;
+  --hl-name: #458; --hl-attr: #008080; --hl-func: #900; --hl-var: #008080;
+  --hl-del-bg: #fdd; --hl-ins-bg: #dfd;
+}
+
+@mixin dark-tokens {
+  color-scheme: dark;
+  --bg: #15171c;
+  --text: #e4e6eb;
+  --text-soft: #c9ccd3;
+  --muted: #9aa0aa;
+  --border: #2c3038;
+  --border-strong: #3d424c;
+  --header-top: #6e7480;
+  --link: #79b0ff;
+  --link-visited: #b49cff;
+  --code-bg: #1f232b;
+  --row-alt: #1b1e24;
+  --th-bg: #232731;
+  --hl-comment: #8b949e; --hl-keyword: #ff7b72; --hl-string: #a5d6ff; --hl-number: #79c0ff;
+  --hl-name: #ffa657; --hl-attr: #7ee787; --hl-func: #d2a8ff; --hl-var: #ffa657;
+  --hl-del-bg: #4a1f24; --hl-ins-bg: #1f3d26;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include dark-tokens; }
+}
+:root[data-theme="dark"] { @include dark-tokens; }
+
+body { color: var(--text); background-color: var(--bg); }
+a { color: var(--link); &:visited { color: var(--link-visited); } }
+blockquote { color: var(--muted); border-left-color: var(--border); }
+pre, code { background-color: var(--code-bg); border-color: var(--border); color: var(--text); }
+.highlighter-rouge .highlight, .highlight { background: var(--code-bg); }
+
+table { color: var(--text-soft); border-color: var(--border);
+  tr:nth-child(even) { background-color: var(--row-alt); }
+  th { background-color: var(--th-bg); border-color: var(--border-strong); border-bottom-color: var(--border-strong); }
+  td { border-color: var(--border); }
+}
+
+.site-header { border-top-color: var(--header-top); border-bottom-color: var(--border); }
+.site-title, .site-title:visited { color: var(--text); }
+.site-nav { background-color: var(--bg); border-color: var(--border);
+  .page-link, .page-link:visited { color: var(--text); }
+  .menu-icon > svg path { fill: var(--muted); }
+}
+.site-footer { border-top-color: var(--border); }
+.footer-col-wrapper, .post-meta, .svg-icon { color: var(--muted); }
+.svg-icon { fill: var(--muted); }
+.post-list-heading, .page-heading, .post-title { color: var(--text); }
+
+/* Theme toggle in the header */
+.theme-toggle {
+  float: right; margin: 15px 0 0 16px; padding: 2px 8px; line-height: 24px;
+  font: inherit; font-size: 15px; cursor: pointer;
+  color: var(--text); background: transparent;
+  border: 1px solid var(--border-strong); border-radius: 5px;
+  &:hover { border-color: var(--link); }
+  &:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  svg { display: block; margin: 4px 0; }
+  @media screen and (max-width: 600px) { margin: 13px 56px 0 0; }   /* clear minima's absolutely placed phone menu */
+}
+
+/* Syntax highlighting through the same tokens */
+.highlight {
+  .c, .cm, .c1, .cs, .cp { color: var(--hl-comment); }
+  .k, .kc, .kd, .kp, .kr, .o, .ow, .gs, .gh { color: var(--hl-keyword); }
+  .kt, .nc, .nn, .no, .bp { color: var(--hl-name); }
+  .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .s1, .ss { color: var(--hl-string); }
+  .sr { color: var(--hl-attr); }
+  .m, .mf, .mh, .mi, .mo, .il { color: var(--hl-number); }
+  .na, .nv, .vc, .vg, .vi, .nb { color: var(--hl-attr); }
+  .nf, .ne, .nt, .err, .gr, .gt { color: var(--hl-func); }
+  .gd { background-color: var(--hl-del-bg); color: var(--text); }
+  .gi { background-color: var(--hl-ins-bg); color: var(--text); }
+  .go, .gp, .gu, .w { color: var(--muted); }
+  .err { background-color: transparent; }
+}
