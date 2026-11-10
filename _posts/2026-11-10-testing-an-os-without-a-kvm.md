@@ -1,6 +1,6 @@
 ---
 title: "Testing a Hobby OS on Real Hardware Without a KVM: QEMU, PXE and SSH"
-date: 2026-11-10 12:30:00 -0600
+date: 2026-11-10 12:15:00 -0600
 ---
 
 **Contents**
