@@ -1,7 +1,7 @@
 ---
 title: "A Disaster-Recovery Drill That Actually Boots the Guests"
 date: 2026-11-02 10:34:00 -0600
-corgi: on-fire
+corgi: success
 ---
 
 **Contents**

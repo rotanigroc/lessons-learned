@@ -1,7 +1,7 @@
 ---
 title: "Rebuilding a Service From Code and Backup: A Rehearsal That Found 13 Bugs"
 date: 2026-11-02 10:33:00 -0600
-corgi: blueprint
+corgi: planning
 ---
 
 **Contents**

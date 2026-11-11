@@ -27,3 +27,40 @@ asleep:
 at-the-laptop:
   width: 240
   alt: "Pixel-art corgi in rainbow glasses and headphones, typing on a laptop at a night-time desk with a lava lamp"
+# Reaction stickers (die-cut, white outline all round, sitting poses).
+cheering:
+  width: 237
+  alt: "Pixel-art corgi in rainbow glasses and headphones, cheering with both paws up among sparkles"
+typing:
+  width: 239
+  alt: "Pixel-art corgi in rainbow glasses and headphones, typing fast on a keyboard"
+investigating:
+  width: 230
+  alt: "Pixel-art corgi in rainbow glasses and headphones, holding a magnifying glass under a question mark"
+panicking:
+  width: 251
+  alt: "Pixel-art corgi in rainbow glasses and headphones, shocked beside a smoking, sparking PC tower"
+idea:
+  width: 253
+  alt: "Pixel-art corgi in rainbow glasses and headphones, smiling up at a lit light bulb"
+coffee:
+  width: 189
+  alt: "Pixel-art corgi in rainbow glasses and headphones, calmly sipping a steaming mug"
+planning:
+  width: 232
+  alt: "Pixel-art corgi in rainbow glasses, headphones and a hard hat, holding a clipboard with a flowchart"
+upgrade:
+  width: 261
+  alt: "Pixel-art corgi in rainbow glasses and headphones, holding a wrench beside a green v2.0 arrow"
+key-and-shield:
+  width: 253
+  alt: "Pixel-art corgi in rainbow glasses and headphones, holding a key beside a padlock shield"
+waiting:
+  width: 279
+  alt: "Pixel-art corgi in rainbow glasses and headphones, chin in paws, waiting beside an hourglass"
+flashlight:
+  width: 262
+  alt: "Pixel-art corgi in rainbow glasses and headphones, shining a flashlight into a dusty, cobwebbed PC"
+success:
+  width: 233
+  alt: "Pixel-art corgi in rainbow glasses and headphones, waving a green checkmark flag"
