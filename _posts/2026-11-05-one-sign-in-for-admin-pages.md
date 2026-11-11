@@ -2,6 +2,7 @@
 title: "One Sign-In for Every Admin Page: authentik as Code, With a Break-Glass on Each"
 date: 2026-11-05 02:35:00 -0600
 tags: [sso, authentik, oidc, reverse-proxy, automation]
+corgi: keycard
 ---
 
 **Contents**

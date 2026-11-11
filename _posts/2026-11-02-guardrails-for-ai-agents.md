@@ -1,6 +1,7 @@
 ---
 title: "Letting an AI Agent Operate Your Lab: The Guardrails That Kept It Safe"
 date: 2026-11-02 10:38:00 -0600
+corgi: guard
 ---
 
 **Contents**

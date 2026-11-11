@@ -1,6 +1,7 @@
 ---
 title: "NVR Tuning: From a Pegged GPU to a Quiet, Useful Alert Stream"
 date: 2026-11-02 10:31:00 -0600
+corgi: on-fire
 ---
 
 **Contents**

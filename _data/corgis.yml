@@ -1,0 +1,29 @@
+# Post corgis. A post picks one with `corgi: <key>` in its front matter; _layouts/post.html shows it perched on the
+# rule under the title. Rules for picking and adding poses: STYLE_GUIDE.md. Images: assets/corgis/<key>.png, 240 px tall.
+puzzled:
+  width: 244
+  alt: "Pixel-art corgi in rainbow glasses and headphones, scratching its head under a question mark"
+keycard:
+  width: 343
+  alt: "Pixel-art corgi in rainbow glasses and headphones, holding up a key card beside a rejected ID badge"
+guard:
+  width: 268
+  alt: "Pixel-art corgi in rainbow glasses, headphones and a security cap, beside a padlock shield"
+magnifier:
+  width: 324
+  alt: "Pixel-art corgi in rainbow glasses and headphones, peering through a magnifying glass"
+on-fire:
+  width: 375
+  alt: "Pixel-art corgi in rainbow glasses and headphones, alarmed, next to a smoking PC tower and small fires"
+blueprint:
+  width: 391
+  alt: "Pixel-art corgi in rainbow glasses and headphones, studying a blueprint beside a construction barrier"
+patch-cables:
+  width: 291
+  alt: "Pixel-art corgi in rainbow glasses and headphones, holding two unplugged cables with a spark between them"
+asleep:
+  width: 522
+  alt: "Pixel-art corgi in rainbow glasses and headphones, asleep next to an hourglass"
+at-the-laptop:
+  width: 240
+  alt: "Pixel-art corgi in rainbow glasses and headphones, typing on a laptop at a night-time desk with a lava lamp"

@@ -1,6 +1,7 @@
 ---
 title: "A Local AI Host on an M1 Laptop: Model Serving, Sync, and Tuning"
 date: 2026-11-02 10:39:00 -0600
+corgi: at-the-laptop
 ---
 
 **Contents**

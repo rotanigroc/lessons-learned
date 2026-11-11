@@ -1,6 +1,7 @@
 ---
 title: "Auto-Patching a Cluster Without Surprising the Household"
 date: 2026-11-02 10:35:00 -0600
+corgi: asleep
 ---
 
 **Contents**

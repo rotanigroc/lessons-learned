@@ -31,3 +31,4 @@ exclude:
   - Gemfile.lock
   - vendor
   - Future_Topics.md
+  - STYLE_GUIDE.md
