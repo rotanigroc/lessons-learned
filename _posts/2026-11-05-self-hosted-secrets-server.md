@@ -2,6 +2,7 @@
 title: "A Self-Hosted Secrets Server on Its Own VLAN: 1Password Connect in Homelab Automation"
 date: 2026-11-05 02:20:00 -0600
 tags: [secrets, 1password, networking, proxmox, automation]
+corgi: key-and-shield
 ---
 
 **Contents**

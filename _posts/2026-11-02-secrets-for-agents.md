@@ -1,6 +1,7 @@
 ---
 title: "Secrets for Agents: A Scoped Vault, Wrapper Scripts, and Redaction by Default"
 date: 2026-11-02 10:37:00 -0600
+corgi: keycard
 ---
 
 **Contents**

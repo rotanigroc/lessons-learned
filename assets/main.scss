@@ -100,3 +100,16 @@ table { color: var(--text-soft); border-color: var(--border);
   .go, .gp, .gu, .w { color: var(--muted); }
   .err { background-color: transparent; }
 }
+
+/* Post corgi (STYLE_GUIDE.md): sits on the rule under the title, the way the error-page corgis sit on their digits.
+   Images are 240 px tall with a flat bottom edge, shown at half size so they stay sharp on 2x screens. */
+.post-header.has-corgi {
+  display: flex; flex-wrap: wrap; align-items: flex-end; column-gap: 20px;
+  border-bottom: 3px solid var(--border-strong);
+  .post-header-text { flex: 1 1 0; min-width: 0; padding-bottom: 10px; }
+  .post-corgi { flex: 0 0 auto; display: block; height: 120px; width: auto; margin-left: auto; }
+  @media screen and (max-width: 600px) {
+    .post-header-text { flex-basis: 100%; padding-bottom: 0; }
+    .post-corgi { height: 88px; }
+  }
+}
