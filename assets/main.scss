@@ -51,7 +51,8 @@
 :root[data-theme="dark"] { @include dark-tokens; }
 
 body { color: var(--text); background-color: var(--bg); }
-a { color: var(--link); &:visited { color: var(--link-visited); } }
+/* minima compiles a:hover to its fixed dark text colour, which vanishes on the dark theme; follow the token instead */
+a { color: var(--link); &:visited { color: var(--link-visited); } &:hover { color: var(--text); } }
 blockquote { color: var(--muted); border-left-color: var(--border); }
 pre, code { background-color: var(--code-bg); border-color: var(--border); color: var(--text); }
 .highlighter-rouge .highlight, .highlight { background: var(--code-bg); }
@@ -112,4 +113,14 @@ table { color: var(--text-soft); border-color: var(--border);
     .post-header-text { flex-basis: 100%; padding-bottom: 0; }
     .post-corgi { height: 88px; }
   }
+}
+
+/* Home page: each post in the list gets its corgi (alt="" there: the title next to it says the same thing), perched on a
+   rule under the entry like the post header. */
+.post-list > li.has-corgi {
+  display: flex; align-items: flex-end; column-gap: 16px;
+  padding-bottom: 0; border-bottom: 2px solid var(--border);
+  .post-list-text { flex: 1 1 0; min-width: 0; padding-bottom: 6px; }
+  .post-list-corgi { flex: 0 0 auto; display: block; height: 64px; width: auto; }
+  @media screen and (max-width: 600px) { .post-list-corgi { height: 52px; } }
 }
