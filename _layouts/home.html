@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{%- comment -%} minima's home layout; each post in the list shows its corgi (see STYLE_GUIDE.md) on the rule under it. {%- endcomment -%}
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      {%- assign corgi = site.data.corgis[post.corgi] -%}
+      <li{% if corgi %} class="has-corgi"{% endif %}>
+        <div class="post-list-text">
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </div>
+        {%- if corgi %}
+        <img class="post-list-corgi" src="{{ "/assets/corgis/" | append: post.corgi | append: ".png" | relative_url }}" width="{{ corgi.width }}" height="240" alt="" loading="lazy">
+        {%- endif %}
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+</div>

@@ -27,7 +27,9 @@ the rule and sizes it:
 | Wider than 600 px | 120 px | Right of the title and date, bottom edge on the rule |
 | 600 px or narrower | 88 px | Below the title and date, right-aligned on the rule |
 
-The post list on the home page stays plain text.
+The home page post list shows the same corgi, smaller, at the right of each entry and sitting on a rule under it
+(`_layouts/home.html`, `.post-list > li.has-corgi`): 64 px tall, 52 px on phones. There it gets empty alt text, because
+the post title beside it already names the entry.
 
 ## 3. Picking a pose
 
