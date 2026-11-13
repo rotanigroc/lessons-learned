@@ -102,6 +102,10 @@ table { color: var(--text-soft); border-color: var(--border);
   .err { background-color: transparent; }
 }
 
+/* In-post images carry width/height attributes (so the page does not jump while they load). Without height: auto the
+   attribute height stays fixed while max-width shrinks the width, which stretches them on phones. */
+.post-content img { max-width: 100%; height: auto; }
+
 /* Post corgi (STYLE_GUIDE.md): sits on the rule under the title, the way the error-page corgis sit on their digits.
    Images are 240 px tall with a flat bottom edge, shown at half size so they stay sharp on 2x screens. */
 .post-header.has-corgi {
