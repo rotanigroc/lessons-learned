@@ -34,6 +34,10 @@ My coding handle is "corginator" in reverse. Give me some design options for an 
 
 It came back as one sheet with four concepts: a cyberpunk developer, a retro vaporwave pixel corgi, a flat vector corgi, and a hooded CLI hacker. Each had a different palette, medium and font. That is the right first step, but none of these is a character yet. They are four different dogs.
 
+![Options sheet with four corgi avatar concepts: cyberpunk, retro pixel, flat vector and terminal hacker]({{ "/assets/posts/nanobanana/01-options-sheet.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Give me some design options for an avatar with a coding corgi" → four concepts on one sheet.*
+
 ## Explore wide, then lock one look
 
 The next two prompts narrowed it down:
@@ -42,6 +46,14 @@ The next two prompts narrowed it down:
 2. "Use 2B as the main vibe", which picked the chill lo-fi one: a night-time bedroom, a lava lamp, plants, a starry window, and a relaxed corgi at a laptop.
 
 From there, each prompt narrowed it further. The useful habit was to **pick a winner by its label** ("2B") instead of describing it again. The label points at one image, while a description can match several.
+
+![Four pixel-art variants of option 2: cyberpunk palette, chill lo-fi, matrix glitch and outrun arcade]({{ "/assets/posts/nanobanana/02-option-2-variants.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Give me some variants on option 2" → four labelled variants. 2B, top right, became the character.*
+
+![Sheet of eight round chill lo-fi corgi badges, four with the name and four without, most in pastel blue headphones]({{ "/assets/posts/nanobanana/03-circle-options.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Use 2B as the main vibe - give me circle options with and without the rotanigroc name" → eight badges, with the headphones still mostly pastel blue.*
 
 ## Change one thing per prompt, and name it
 
@@ -57,7 +69,27 @@ Locking the look took a chain of small edits, each building on the last image:
 
 Each prompt changed one thing and kept the rest, so when something came back wrong, it was clear which change caused it.
 
-The one miss in this stretch came from **pointing at an image by its position**. "Take the 2nd image (black headphones) but use the pink font from the first image" was sent, then sent again reworded, and then dropped for a prompt that said what was wanted ("rainbow framed glasses and black headphones ... name in vaporwave purple font"). Once there are a dozen images in the thread, "the 2nd image" is not a clear reference for you or for the model.
+![Two round badges of the corgi in rainbow glasses and black headphones at a laptop, one with the name in purple pixel font and one without]({{ "/assets/posts/nanobanana/05-circles-rainbow-glasses.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "I wan the 2B vibe but with rainbow framed glasses and black headphones. Give me 2 circle variants - 1 with the name in vaporwave purple font and the other with no name" → the avatar, both versions.*
+
+![Wide night-time bedroom scene with one corgi at a laptop, a CRT monitor on the left and the name in purple along the bottom]({{ "/assets/posts/nanobanana/06-full-scene-one-corgi.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Give me the full 2B image but with the changes to the glasses/headphones and just 1 corgi at the table" → the wide scene.*
+
+![The same scene with the monitor replaced by an open PC tower and loose parts on the desk]({{ "/assets/posts/nanobanana/07-pc-tower.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Replace the monitor with a taken apart PC tower" → one change, everything else kept.*
+
+![The same scene with the name removed and the desk filling the bottom of the frame]({{ "/assets/posts/nanobanana/08-scene-no-name.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Excellent - give me the same image without the name on the bottom" → the clean banner.*
+
+The one miss in this stretch came from **pointing at an image by its position**. "Take the 2nd image (black headphones) but use the pink font from the first image" was sent, then sent again reworded. Both times the model redrew the whole eight-badge sheet, recolouring a few headphones, instead of returning one badge in two versions. The request was then dropped for a prompt that said what was wanted ("rainbow framed glasses and black headphones ... name in vaporwave purple font"). Once there are a dozen images in the thread, "the 2nd image" is not a clear reference for you or for the model.
+
+![The eight-badge sheet again, nearly unchanged, with a few headphones now black]({{ "/assets/posts/nanobanana/04-circle-by-position.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Take image 2 (black headphones) but use the pink font from the first image. Give me the same image 2 without the name as well" → the whole sheet again, not one badge.*
 
 **Old**
 
@@ -76,7 +108,15 @@ Version 1: "rotanigroc" along the bottom in the vaporwave purple pixel font. Ver
 
 The first error-page icons (404, 403, 502, 504) came as busy scenes, so the next prompt was "just the error code and the corgi sitting on top of the text - transparent background".
 
-The result had a grey-and-white checkerboard drawn into the pixels. Image models output flat RGB images. When you ask for transparency, you get a picture of the checkerboard that editors use to show transparency.
+![Two-by-two grid of busy error-page scenes for 404, 403, 502 and 504 in the night-time bedroom]({{ "/assets/posts/nanobanana/09-first-error-icons.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Use the corgi design we've decided on to make icons for error pages e.g. 404, 403, 501, etc" → four full scenes, too busy for an icon.*
+
+The result had a dark checkerboard drawn into the pixels. Image models output flat RGB images. When you ask for transparency, you get a picture of the checkerboard that editors use to show transparency.
+
+![Error icons 404, 403, 501 and 502 with the corgi on the digits, on a dark checkerboard that is part of the image]({{ "/assets/posts/nanobanana/10-transparent-checkerboard.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Simplify - just the error code and the corgi sitting on top of the text - transparent background" → a checkerboard painted into an opaque image.*
 
 The fix was to stop asking for transparency and ask for something easy to remove:
 
@@ -91,6 +131,10 @@ The fix was to stop asking for transparency and ask for something easy to remove
 ```text
 ... on a solid pure flat chroma green #00FF00 background ... no shadows cast onto the green background.
 ```
+
+![The same four error icons on flat bright green]({{ "/assets/posts/nanobanana/11-chroma-green-icons.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Instead of the not-actually-transparent checkerboard - set the background to a value that's easily keyed out using MacOS's Preview “Remove Background” feature" → flat #00FF00, ready to key.*
 
 A green screen with no shadows on it can be keyed out in one click in macOS Preview (Instant Alpha) or with a short script. Then the keyed image needs an outline, which went into the guide as a hard rule: a **2 px solid white border around all lettering and props**. Without it, black headphones and dark outlines vanish on a dark page once the green is gone.
 
@@ -138,10 +182,18 @@ The character description, medium, background and outline are fixed text. Only t
 
 With the guide in place, one prompt asked for "all standard error codes (each one its own image)". Eight came back: 400, 401, 403, 404, 500, 501, 502 and 504, each with its own caption and on green.
 
+![Eight error badges on green, 400 Bad Request to 504 Gateway Timeout, each with the corgi on the digits]({{ "/assets/posts/nanobanana/12-error-badges-400-504.webp" | relative_url }}){: width="1200" height="600" loading="lazy"}
+
+*Prompt: "Generate all standard error codes (each one it's own image) - include a 2px white border around the lettering…" → eight separate images (shown here as one grid). No 503.*
+
 Two things in that batch only showed up on a check against the guide:
 
 - **A code went missing.** The guide's scenario matrix lists 503 ("Be Right Back" sign on the laptop, corgi napping). The batch has no 503, and nothing in the reply says so. A batch request is not a contract, so count what came back against the list you asked for.
 - **A rule was skipped.** The guide says the white outline is mandatory, but the 502 render came out without one. The keying script for the error pages has a `--stroke` option for exactly this case: it draws a solid white outline around the keyed art. The 502 badge was keyed with `--stroke 7`.
+
+![Close-up of the 502 digits with only a dark outline next to the 404 digits with an extra white outline]({{ "/assets/posts/nanobanana/12b-outline-502-vs-404.webp" | relative_url }}){: width="800" height="320" loading="lazy"}
+
+*Left: 502, dark outline straight onto the green. Right: 404, with the white outline the guide asks for.*
 
 Even with a tight guide, the model follows most of it most of the time. The guide does its job by giving you a list to check each image against: the codes asked for, the outline, a flat green background, the glasses, the headphones.
 
@@ -156,9 +208,17 @@ I'm writing blog posts about various tech projects. Give me some accent art usin
 that would be useful for various expressions
 ```
 
+![Sticker sheet of six corgi poses on green: cheering, typing, investigating, panicking, idea and coffee]({{ "/assets/posts/nanobanana/13-sticker-sheet-1.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "I'm writing blog posts about various tech projects. Give me some accent art…" → cheering, typing, investigating, panicking, idea, coffee.*
+
 ```text
 Those are great, give me another 6 different expressions
 ```
+
+![Second sticker sheet of six corgi poses on green: planning, upgrade, key and shield, waiting, flashlight and success]({{ "/assets/posts/nanobanana/14-sticker-sheet-2.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
+
+*Prompt: "Those are great, give me another 6 different expressions" → planning, upgrade, key and shield, waiting, flashlight, success.*
 
 The model's own image prompt for these, which the conversation shows with each image, carried the guide's rules over without being asked: "2x3 grid", "flat, solid chroma green background (#00FF00)", "a crisp, prominent 2-pixel white outline surrounding its entire shape", "No text is rendered anywhere in the image", "arranged neatly with generous spacing ... ensuring no overlapping". The guide was in the conversation, and it showed up in the prompt.
 
@@ -169,7 +229,7 @@ Turning two sheets into twelve stickers took two small scripts:
 - `split.py` crops each sheet into a 3-by-2 grid of cells and names each cell after its pose (`cheering`, `typing`, `investigating`, and so on). "Generous spacing, no overlapping" in the prompt is what makes a plain grid cut work.
 - `key-sticker.py` removes the green. The naive approach, deleting every green pixel, eats the art: the green v2.0 arrow in the `upgrade` pose, the checkmark flag in `success`, the green band in the rainbow frames (`#00D27F` is right in the palette). So the script only treats green as background when it is **connected to the image border**, or when it is a small gap that is plain chroma colour. Green enclosed by the white outline is art and stays.
 
-Preview's Instant Alpha, as the guide suggests, is fine for one image. For twelve stickers plus nine badges, use a script, and check each result on black and on white for green fringe and gaps in the outline.
+Preview's Instant Alpha, as the guide suggests, is fine for one image. For twelve stickers plus eight badges, use a script, and check each result on black and on white for green fringe and gaps in the outline.
 
 ## Two guides, not one
 
