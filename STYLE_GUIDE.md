@@ -65,7 +65,7 @@ Both sit on the header rule and can be mixed across posts.
 | `investigating` | Magnifying glass under a question mark | Open questions, digging for a cause | (none yet) |
 | `panicking` | Shocked beside a smoking, sparking PC | Something just broke, live incidents | (none yet) |
 | `flashlight` | Shining a light into a dusty, cobwebbed PC | Legacy systems, old hardware, archaeology | (none yet) |
-| `idea` | Looking up at a lit light bulb | A trick or insight that made it click | (none yet) |
+| `idea` | Looking up at a lit light bulb | A trick or insight that made it click | A style guide for Nano Banana |
 | `coffee` | Sipping a steaming mug | Calm wrap-ups, quiet maintenance, "it just works" | (none yet) |
 | `cheering` | Both paws up among sparkles | Wins, launches, milestones | (none yet) |
 
