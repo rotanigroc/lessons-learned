@@ -2,7 +2,7 @@
 title: "The Same Corgi Every Time: A Style Guide That Makes Nano Banana Repeatable"
 date: 2026-11-13 11:00:00 -0600
 tags: [ai, image-generation, gemini, style-guide, pixel-art, design]
-corgi: planning
+corgi: idea
 ---
 
 **Contents**
@@ -23,8 +23,6 @@ corgi: planning
 The corgi at the top of every post on this blog is a single character. It is a Pembroke Welsh corgi in rainbow-frame glasses and black over-ear headphones, drawn as 16-bit pixel art. It started as a profile avatar. Since then it has also become a desktop banner, the error pages in front of the home lab (400 through 504), and twelve reaction stickers. All of it came out of one Gemini conversation using its image model, Nano Banana. Most of the images look like the same dog.
 
 That "same dog" part was not luck, and it did not happen on the first try. This post covers what made it repeatable: a written style guide with fixed colour tokens and a fill-in-the-blanks prompt, a keying background in place of "transparent", and a check of every result against the guide. It also covers the places where the model still drifted.
-
-The conversation is public if you want to follow along: [the shared Gemini chat](https://share.gemini.google/TA8rigYmxg1r).
 
 ## Where it started
 
@@ -162,7 +160,7 @@ that would be useful for various expressions
 Those are great, give me another 6 different expressions
 ```
 
-The model's own image prompt for these, visible in the shared page, carried the guide's rules over without being asked: "2x3 grid", "flat, solid chroma green background (#00FF00)", "a crisp, prominent 2-pixel white outline surrounding its entire shape", "No text is rendered anywhere in the image", "arranged neatly with generous spacing ... ensuring no overlapping". The guide was in the conversation, and it showed up in the prompt.
+The model's own image prompt for these, which the conversation shows with each image, carried the guide's rules over without being asked: "2x3 grid", "flat, solid chroma green background (#00FF00)", "a crisp, prominent 2-pixel white outline surrounding its entire shape", "No text is rendered anywhere in the image", "arranged neatly with generous spacing ... ensuring no overlapping". The guide was in the conversation, and it showed up in the prompt.
 
 The same prompt starts with "maintaining the exact same character appearance, color palette, and 16-bit retro pixel art style as `<IMAGE_0>` and `<IMAGE_1>`". So the model was holding the character steady by referring to images already in the thread, not only to the written guide. In a new conversation that context is gone. The safe move is to attach a locked reference image (the plain banner or avatar) **and** paste the guide.
 

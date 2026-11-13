@@ -60,12 +60,12 @@ Both sit on the header rule and can be mixed across posts.
 | `upgrade` | Wrench beside a green v2.0 arrow | Patching, upgrades, migrations, version bumps | Auto-patching a cluster |
 | `key-and-shield` | Holding a key beside a padlock shield | Secrets, vaults, credentials at rest | Self-hosted secrets server |
 | `success` | Waving a checkmark flag | A drill, test or rollout that passed | Disaster-recovery drill |
-| `planning` | Hard hat, clipboard with a flowchart | Rehearsals, runbooks, plans written before the change | Rebuild test; A style guide for Nano Banana |
+| `planning` | Hard hat, clipboard with a flowchart | Rehearsals, runbooks, plans written before the change | Rebuild test |
 | `waiting` | Chin in paws beside an hourglass | Stuck queues, hangs, things that never finish | Taming the *arr stack |
 | `investigating` | Magnifying glass under a question mark | Open questions, digging for a cause | (none yet) |
 | `panicking` | Shocked beside a smoking, sparking PC | Something just broke, live incidents | (none yet) |
 | `flashlight` | Shining a light into a dusty, cobwebbed PC | Legacy systems, old hardware, archaeology | (none yet) |
-| `idea` | Looking up at a lit light bulb | A trick or insight that made it click | (none yet) |
+| `idea` | Looking up at a lit light bulb | A trick or insight that made it click | A style guide for Nano Banana |
 | `coffee` | Sipping a steaming mug | Calm wrap-ups, quiet maintenance, "it just works" | (none yet) |
 | `cheering` | Both paws up among sparkles | Wins, launches, milestones | (none yet) |
 
