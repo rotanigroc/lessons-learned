@@ -14,6 +14,7 @@ This repo is a Jekyll site built by GitHub Pages (theme `minima`).
 | `about.md` | About page, including the sanitization rules. |
 | `index.md` | Home page: the post list, newest first. |
 | `_config.yml` | Site settings (date format, permalinks, plugins). |
+| `_data/tags.yml`, `_includes/post-tags.html`, `assets/js/home.js` | Tags: the short tag list, the chips on each post, and the home page filter (`?tag=<key>`). Rules: [STYLE_GUIDE.md](STYLE_GUIDE.md), section 8. |
 | `_layouts/post.html`, `_data/corgis.yml`, `assets/corgis/` | The post corgi shown on the rule under each title. Rules and the pose list: [STYLE_GUIDE.md](STYLE_GUIDE.md). |
 | `assets/main.scss`, `_includes/head.html`, `_includes/header.html` | Theme overrides: dark mode (follows the OS, header toggle, saved per browser) with all colours in CSS variables so dark-mode extensions like Dark Reader re-map cleanly. |
 
@@ -26,7 +27,10 @@ Preview locally: `bundle install && bundle exec jekyll serve`, then open http://
    ---
    title: "Your Title"
    date: 2026-11-05 14:30:00 -0600
+   tags: [homelab, security]
    corgi: magnifier
+   tldr:
+     - "What happened, in one sentence."
    ---
    ```
    Do not repeat the title as a `#` heading; the layout prints it. Pick the `corgi` pose that fits the post from [STYLE_GUIDE.md](STYLE_GUIDE.md).

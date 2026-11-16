@@ -1,0 +1,13 @@
+{%- comment -%}
+  A post's tags as links to the home page filter (STYLE_GUIDE.md, section 8). Shown in _data/tags.yml order.
+  Usage: {% include post-tags.html tags=post.tags %}
+{%- endcomment -%}
+{%- if include.tags and include.tags.size > 0 -%}
+<ul class="post-tags" aria-label="Tags">
+{%- for t in site.data.tags -%}
+{%- if include.tags contains t[0] %}
+<li><a class="tag" href="{{ "/" | relative_url }}?tag={{ t[0] }}" data-tag="{{ t[0] }}">{{ t[1].label }}</a></li>
+{%- endif -%}
+{%- endfor %}
+</ul>
+{%- endif -%}

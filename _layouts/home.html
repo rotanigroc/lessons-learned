@@ -1,7 +1,10 @@
 ---
 layout: default
 ---
-{%- comment -%} minima's home layout; each post in the list shows its corgi (see STYLE_GUIDE.md) on the rule under it. {%- endcomment -%}
+{%- comment -%}
+  minima's home layout; each post in the list shows its corgi (see STYLE_GUIDE.md) on the rule under it, and its tags.
+  The tag bar filters the list (assets/js/home.js, ?tag=<key> in the URL). Without JavaScript every post shows.
+{%- endcomment -%}
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
@@ -11,10 +14,23 @@ layout: default
 
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <nav class="tag-filter" aria-label="Filter posts by tag">
+      <ul>
+        <li><a class="tag" href="{{ "/" | relative_url }}" data-tag="" aria-current="true">All <span class="tag-count">{{ site.posts.size }}</span></a></li>
+        {%- for t in site.data.tags -%}
+        {%- assign n = 0 -%}
+        {%- for p in site.posts -%}{%- if p.tags contains t[0] -%}{%- assign n = n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+        {%- if n > 0 %}
+        <li><a class="tag" href="{{ "/" | relative_url }}?tag={{ t[0] }}" data-tag="{{ t[0] }}" title="{{ t[1].about | escape }}">{{ t[1].label }} <span class="tag-count">{{ n }}</span></a></li>
+        {%- endif -%}
+        {%- endfor %}
+      </ul>
+    </nav>
+    <p class="tag-filter-status" aria-live="polite"></p>
     <ul class="post-list">
       {%- for post in site.posts -%}
       {%- assign corgi = site.data.corgis[post.corgi] -%}
-      <li{% if corgi %} class="has-corgi"{% endif %}>
+      <li{% if corgi %} class="has-corgi"{% endif %} data-tags="{{ post.tags | join: ' ' }}">
         <div class="post-list-text">
           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
           <span class="post-meta">{{ post.date | date: date_format }}</span>
@@ -23,6 +39,7 @@ layout: default
               {{ post.title | escape }}
             </a>
           </h3>
+          {%- include post-tags.html tags=post.tags -%}
           {%- if site.show_excerpts -%}
             {{ post.excerpt }}
           {%- endif -%}
@@ -34,6 +51,7 @@ layout: default
       {%- endfor -%}
     </ul>
 
+    <script src="{{ "/assets/js/home.js" | relative_url }}" defer></script>
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {%- endif -%}
 

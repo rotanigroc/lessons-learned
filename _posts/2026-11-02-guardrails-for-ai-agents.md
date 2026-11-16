@@ -1,6 +1,7 @@
 ---
 title: "Letting an AI Agent Operate Your Lab: The Guardrails That Kept It Safe"
 date: 2026-11-02 10:38:00 -0600
+tags: [ai, homelab, security]
 corgi: guard
 tldr:
   - "An AI agent did most of the hands-on work on a home lab for three weeks. Seven rules kept that safe."

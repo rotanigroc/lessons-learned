@@ -1,6 +1,7 @@
 ---
 title: "Testing a Hobby OS on Real Hardware Without a KVM: QEMU, PXE and SSH"
 date: 2026-11-10 12:15:00 -0600
+tags: [craftpane]
 corgi: blueprint
 tldr:
   - "A hobby OS written in Rust is tested on every change in QEMU, and on a real laptop that nobody touches, without an IP KVM."

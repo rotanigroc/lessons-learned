@@ -1,0 +1,27 @@
+# The blog's tags, in the order the home page filter shows them. A post lists one to three keys from here in its
+# front matter (`tags: [homelab, security]`); rules in STYLE_GUIDE.md, section 8. Keep this list short: a new tag
+# earns its place only when at least two posts would use it.
+craftpane:
+  label: CraftPane
+  about: "The hobby operating system: boot, install, desktop, Win32 programs"
+homelab:
+  label: Home lab
+  about: "Servers, services and automation at home"
+ai:
+  label: AI
+  about: "AI agents, local models and image generation"
+security:
+  label: Security
+  about: "Sign-in, secrets, patching, firewalls"
+networking:
+  label: Networking
+  about: "VLANs, firewall zones, network paths"
+cameras:
+  label: Cameras
+  about: "The NVR, detection and recordings"
+media:
+  label: Media
+  about: "Media server, downloads, gaming audio"
+storage:
+  label: Storage & backups
+  about: "Tiers, mounts, backups and restores"

@@ -211,3 +211,28 @@ table { color: var(--text-soft); border-color: var(--border);
 
 /* Wide tables scroll inside the column instead of widening the page on phones (now that they sit in section bodies). */
 .post-content table { display: block; max-width: 100%; overflow-x: auto; }
+
+/* Tags (STYLE_GUIDE.md, section 8): small chips under a post's title, and the filter bar on the home page. */
+.post-tags, .tag-filter ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.post-tags { margin: 2px 0 8px; }
+.post-header .post-tags { margin: 6px 0 0; }
+a.tag, a.tag:visited {
+  display: inline-block; padding: 1px 9px; font-size: 13px; line-height: 1.6;
+  color: var(--text-soft); background: var(--row-alt);
+  border: 1px solid var(--border-strong); border-radius: 999px; text-decoration: none;
+  &:hover { color: var(--link); border-color: var(--link); text-decoration: none; }
+  &:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+}
+.tag-filter {
+  margin: 0 0 6px;
+  a.tag, a.tag:visited { font-size: 15px; padding: 5px 12px; min-height: 36px; display: inline-flex; align-items: center; gap: 6px; }
+  a.tag[aria-current="true"] { color: var(--bg); background: var(--link); border-color: var(--link); }
+  .tag-count { font-size: 12px; opacity: 0.75; }
+}
+.tag-filter-status { min-height: 1.5em; margin: 0 0 8px; font-size: 15px; color: var(--muted); }
+.post-list > li[hidden] { display: none; }
+
+/* A YouTube video at the column's width, 16:9. */
+.video-embed { margin: 0 0 24px; aspect-ratio: 16 / 9;
+  iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: 6px; }
+}

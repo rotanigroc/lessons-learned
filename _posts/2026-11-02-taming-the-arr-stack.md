@@ -1,6 +1,7 @@
 ---
 title: "Taming the *arr Stack: Stuck Imports, Duplicate Grabs, and Delay Profiles"
 date: 2026-11-02 10:36:00 -0600
+tags: [homelab, media]
 corgi: waiting
 tldr:
   - "Seven episodes stuck as `importBlocked` and a movie downloaded ten times came from three separate settings."

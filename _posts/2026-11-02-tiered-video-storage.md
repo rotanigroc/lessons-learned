@@ -1,6 +1,7 @@
 ---
 title: "Tiered Video Storage: Hot on Ceph, Cold on the NAS, and the Stale NFS Handle"
 date: 2026-11-02 10:32:00 -0600
+tags: [homelab, cameras, storage]
 corgi: patch-cables
 tldr:
   - "An NVR recording to a NAS over NFS stopped recording whenever the NAS went away."

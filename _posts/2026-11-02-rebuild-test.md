@@ -1,6 +1,7 @@
 ---
 title: "Rebuilding a Service From Code and Backup: A Rehearsal That Found 13 Bugs"
 date: 2026-11-02 10:33:00 -0600
+tags: [homelab, storage]
 corgi: planning
 tldr:
   - "A small Docker service was rebuilt as a new container from the repo plus a backup, with no hand steps, then cut over with 45 seconds of downtime."

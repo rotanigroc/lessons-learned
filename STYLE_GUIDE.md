@@ -67,7 +67,7 @@ Both sit on the header rule and can be mixed across posts.
 | `flashlight` | Shining a light into a dusty, cobwebbed PC | Legacy systems, old hardware, archaeology | (none yet) |
 | `idea` | Looking up at a lit light bulb | A trick or insight that made it click | A style guide for Nano Banana |
 | `coffee` | Sipping a steaming mug | Calm wrap-ups, quiet maintenance, "it just works" | (none yet) |
-| `cheering` | Both paws up among sparkles | Wins, launches, milestones | (none yet) |
+| `cheering` | Both paws up among sparkles | Wins, launches, milestones | CraftPane runs DOOM |
 
 When two poses fit, choose the one that matches the post's title. When none fits well, use `at-the-laptop` or `coffee`
 and add a new pose later (section 6).
@@ -184,3 +184,29 @@ slideshows:
 - Put the include on its own line with a blank line before and after it.
 - Without JavaScript it is a row of images that scrolls sideways; `assets/js/post.js` adds Prev/Next, an "n of m"
   counter and arrow-key support. Swipe works on phones either way.
+
+## 8. Tags
+
+Every post has one to three tags from the short list in `_data/tags.yml`. The home page shows a filter bar built from
+that list (with a count per tag), and each post shows its tags as chips under the title. A tag links to the home page
+with `?tag=<key>`, which `assets/js/home.js` turns into a filtered list; without JavaScript the whole list shows.
+
+```yaml
+tags: [homelab, security]
+```
+
+| Key | Label | Use it for |
+|---|---|---|
+| `craftpane` | CraftPane | The hobby OS: boot, install, desktop, Win32 programs |
+| `homelab` | Home lab | Anything run on the home servers and network |
+| `ai` | AI | AI agents, local models, image generation |
+| `security` | Security | Sign-in, secrets, patching, firewalls |
+| `networking` | Networking | VLANs, firewall zones, network paths |
+| `cameras` | Cameras | The NVR, detection, recordings |
+| `media` | Media | Media server, downloads, gaming audio |
+| `storage` | Storage & backups | Storage tiers, mounts, backups and restores |
+
+- Use only keys from `_data/tags.yml`. A key that is not in the file is not shown anywhere.
+- Tag the subject, not every tool mentioned: a post about an NVR's storage is `cameras` and `storage`, not `proxmox`.
+- Add a new tag only when at least two posts would use it. Add it to `_data/tags.yml` (the file's order is the
+  filter bar's order) and to the table above.
