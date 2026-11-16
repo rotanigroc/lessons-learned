@@ -2,19 +2,11 @@
 title: "Auto-Patching a Cluster Without Surprising the Household"
 date: 2026-11-02 10:35:00 -0600
 corgi: upgrade
----
-
-**Contents**
-
-1. [The goal](#the-goal)
-2. [What triggers a patch](#what-triggers-a-patch)
-3. [The hypervisor path](#the-hypervisor-path)
-4. [The gaming PC path](#the-gaming-pc-path)
-5. [Going live behind a flag](#going-live-behind-a-flag)
-6. [Bugs that only showed up when it ran](#bugs-that-only-showed-up-when-it-ran)
-7. [Stopping it](#stopping-it)
-8. [Takeaways](#takeaways)
-
+tldr:
+  - "A security advisory for software running at home now patches the affected machine, reboots it only when needed, and reports back."
+  - "Patches fire only on proof that a fix exists, and the reboot is a separate step with its own window and pre-flight checks."
+  - "The gaming PC is never woken at random or rebooted mid-game: a game gate checks what people are doing, not just what machines are doing."
+  - "It shipped as a dry run first, then went live behind one flag."
 ---
 
 ## The goal

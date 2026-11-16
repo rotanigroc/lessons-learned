@@ -2,18 +2,11 @@
 title: "Tiered Video Storage: Hot on Ceph, Cold on the NAS, and the Stale NFS Handle"
 date: 2026-11-02 10:32:00 -0600
 corgi: patch-cables
----
-
-**Contents**
-
-1. [The problem](#the-problem)
-2. [The design](#the-design)
-3. [The failure mode that matters: a dead NFS server](#the-failure-mode-that-matters-a-dead-nfs-server)
-4. [Old vs new: detecting a stale mount](#old-vs-new-detecting-a-stale-mount)
-5. [Old vs new: the free-space alert that never fired](#old-vs-new-the-free-space-alert-that-never-fired)
-6. [Healing everything else that mounts the NAS](#healing-everything-else-that-mounts-the-nas)
-7. [Takeaways](#takeaways)
-
+tldr:
+  - "An NVR recording to a NAS over NFS stopped recording whenever the NAS went away."
+  - "Recordings now land on a hot tier on replicated cluster storage, old footage moves to the NAS, and mergerfs shows one tree, so nothing needed migrating."
+  - "The NAS mount is soft and optional, mounts are checked by reading `/proc/mounts`, and the free-space alert watches the volume that matters."
+  - "Everything else that mounts the NAS heals itself in layers, with cooldowns and a maintenance switch."
 ---
 
 ## The problem

@@ -2,20 +2,11 @@
 title: "Rebuilding a Service From Code and Backup: A Rehearsal That Found 13 Bugs"
 date: 2026-11-02 10:33:00 -0600
 corgi: planning
----
-
-**Contents**
-
-1. [The test](#the-test)
-2. [The structure that made it safe](#the-structure-that-made-it-safe)
-3. [Results](#results)
-4. [Bug 1: the half-installed app](#bug-1-the-half-installed-app)
-5. [Bug 2: the missing cron jobs](#bug-2-the-missing-cron-jobs)
-6. [Smaller bugs, big pattern](#smaller-bugs-big-pattern)
-7. [Rollback and the hands-off cleanup](#rollback-and-the-hands-off-cleanup)
-8. [What it proved, and what it did not](#what-it-proved-and-what-it-did-not)
-9. [Takeaways](#takeaways)
-
+tldr:
+  - "A small Docker service was rebuilt as a new container from the repo plus a backup, with no hand steps, then cut over with 45 seconds of downtime."
+  - "The rehearsal found 13 bugs, including an app left half-installed on first start and cron jobs the old machine ran that nobody had written down."
+  - "The original was stopped, never destroyed, and rollback is a tested template."
+  - "A clean run from scratch now takes about 7 minutes."
 ---
 
 ## The test

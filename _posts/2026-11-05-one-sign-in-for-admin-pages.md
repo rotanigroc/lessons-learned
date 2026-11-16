@@ -3,22 +3,11 @@ title: "One Sign-In for Every Admin Page: authentik as Code, With a Break-Glass 
 date: 2026-11-05 02:35:00 -0600
 tags: [sso, authentik, oidc, reverse-proxy, automation]
 corgi: keycard
----
-
-**Contents**
-
-1. [The goal](#the-goal)
-2. [The shape of it](#the-shape-of-it)
-3. [authentik as code: blueprints, not clicks](#authentik-as-code-blueprints-not-clicks)
-4. [Client secrets that never leave the cluster](#client-secrets-that-never-leave-the-cluster)
-5. [Pilot: a Git server, and three surprises](#pilot-a-git-server-and-three-surprises)
-6. [The edge gate: moving from a hosted IdP to authentik](#the-edge-gate-moving-from-a-hosted-idp-to-authentik)
-7. [Rolling it out in batches](#rolling-it-out-in-batches)
-8. [Two tiers of users](#two-tiers-of-users)
-9. [Native OIDC for the playbook runner, which restarts itself](#native-oidc-for-the-playbook-runner-which-restarts-itself)
-10. [What it does not cover](#what-it-does-not-cover)
-11. [Takeaways](#takeaways)
-
+tldr:
+  - "Every admin page in the lab now sits behind one authentik sign-in, configured from blueprints in a repo, not clicks."
+  - "Every service keeps a tested local break-glass login, checked with the identity provider stopped."
+  - "Client secrets are generated inside authentik and compared by hash. UIs are gated at the edge, while `/api/` keeps the app's own keys."
+  - "Expect surprises: grant types after upgrades, HTTPS callbacks behind a rewriting proxy, `email_verified: false` and oversized cookies."
 ---
 
 A home lab collects admin pages: a NAS UI, download clients, a Git server, dashboards, a playbook runner, a hypervisor. Each had its own login, some had none, and one Git server would let anyone who reached it register an account. This post is how they ended up behind one identity provider, configured from a repo, with a local login kept on every service for the day the identity provider is down.

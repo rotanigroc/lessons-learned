@@ -2,19 +2,10 @@
 title: "A New Firewall Zone Blocked Everything: Staging Network Segmentation Safely"
 date: 2026-11-02 10:30:00 -0600
 corgi: guard
----
-
-**Contents**
-
-1. [The goal](#the-goal)
-2. [Step 0: audit before you touch anything](#step-0-audit-before-you-touch-anything)
-3. [Step 1: remove what is provably dead, reversibly](#step-1-remove-what-is-provably-dead-reversibly)
-4. [Step 2: create the zone (and the 90-second outage)](#step-2-create-the-zone-and-the-90-second-outage)
-5. [Step 3: build exceptions from evidence](#step-3-build-exceptions-from-evidence)
-6. [Step 4: enforce, with a one-command way back](#step-4-enforce-with-a-one-command-way-back)
-7. [API gotchas worth knowing](#api-gotchas-worth-knowing)
-8. [Takeaways](#takeaways)
-
+tldr:
+  - "Moving smart-home devices into their own firewall zone caused a 90-second outage, because a new zone blocks all traffic by default, even to itself."
+  - "The safe order: audit read-only, remove what is provably dead, create allow policies before the zone gets a network, then log for 48 hours before enforcing."
+  - "Enforcement and rollback are each one command."
 ---
 
 ## The goal

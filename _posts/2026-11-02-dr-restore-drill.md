@@ -2,19 +2,11 @@
 title: "A Disaster-Recovery Drill That Actually Boots the Guests"
 date: 2026-11-02 10:34:00 -0600
 corgi: success
----
-
-**Contents**
-
-1. [Why a drill](#why-a-drill)
-2. [The backup design](#the-backup-design)
-3. [The drill](#the-drill)
-4. [Results](#results)
-5. [What the playbook enforces](#what-the-playbook-enforces)
-6. [What it took to get a pass](#what-it-took-to-get-a-pass)
-7. [What is still manual](#what-is-still-manual)
-8. [Takeaways](#takeaways)
-
+tldr:
+  - "The drill restores from the encrypted off-site copy, not the local one, into spare guests that must actually boot."
+  - "It takes about eight minutes from cloud drive to a booted container and VM. It passed on the fourth run."
+  - "The playbook refuses to harm production: spare IDs only, networking stripped before first start, no HA registration, and cleanup in an `always:` block."
+  - "Keep the backup's encryption key somewhere that does not share a fate with the lab."
 ---
 
 ## Why a drill

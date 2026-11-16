@@ -3,21 +3,11 @@ title: "A Self-Hosted Secrets Server on Its Own VLAN: 1Password Connect in Homel
 date: 2026-11-05 02:20:00 -0600
 tags: [secrets, 1password, networking, proxmox, automation]
 corgi: key-and-shield
----
-
-**Contents**
-
-1. [Why a Connect server](#why-a-connect-server)
-2. [The design](#the-design)
-3. [Step 0: check that your plan offers it](#step-0-check-that-your-plan-offers-it)
-4. [Building the network first](#building-the-network-first)
-5. [Getting the credentials file in without anyone seeing it](#getting-the-credentials-file-in-without-anyone-seeing-it)
-6. [The sync that failed: domain allowlists need the gateway's DNS](#the-sync-that-failed-domain-allowlists-need-the-gateways-dns)
-7. [Proving the isolation](#proving-the-isolation)
-8. [Wrappers: Connect for reads, the service account for everything else](#wrappers-connect-for-reads-the-service-account-for-everything-else)
-9. [Keeping it healthy](#keeping-it-healthy)
-10. [Takeaways](#takeaways)
-
+tldr:
+  - "Agents now read credentials from a self-hosted 1Password Connect server on its own VLAN, which keeps them clear of the service account's rate limits."
+  - "The isolated network came first, the credentials file went in through a one-shot secret compared by hash, and repeatable probes prove the isolation."
+  - "The night's surprise: the router's domain allowlist only worked once the server used the gateway's DNS."
+  - "Reads prefer the local server and fall back to the cloud. Writes stay on the service account."
 ---
 
 This is the follow-up to [Secrets for Agents]({% post_url 2026-11-02-secrets-for-agents %}), which ended with a plan: run a self-hosted secrets server on a network where only its API can be reached. This post is how that plan went from a table in a doc to a running service, and the one firewall surprise that took most of the night.

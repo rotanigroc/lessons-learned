@@ -1,0 +1,36 @@
+{%- comment -%}
+  Slideshow for a progression of images (STYLE_GUIDE.md, "Post layout"). Usage, in a post:
+
+    {% include slideshow.html slides=page.slideshows.explore label="From four concepts to one look" %}
+
+  with the slides in the post's front matter:
+
+    slideshows:
+      explore:
+        - src: /assets/posts/<post>/01-first.webp
+          width: 1024
+          height: 572
+          alt: What the image shows, for someone who cannot see it
+          caption: >-
+            Markdown is fine here, e.g. *Prompt: "..."* → result.
+
+  Without JavaScript it is a row of images that scrolls sideways; post.js adds the buttons and the counter.
+  Keep the output free of blank lines and indented code: it sits inside Markdown.
+{%- endcomment -%}
+<div class="slideshow" role="region" aria-roledescription="carousel" aria-label="{{ include.label | escape }}">
+<div class="slideshow-track" tabindex="0">
+{%- for s in include.slides %}
+<figure class="slide" role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ forloop.length }}">
+<img src="{{ s.src | relative_url }}" width="{{ s.width }}" height="{{ s.height }}" alt="{{ s.alt | escape }}" loading="lazy">
+{%- if s.caption %}
+<figcaption>{{ s.caption | markdownify | remove: "<p>" | remove: "</p>" | strip }}</figcaption>
+{%- endif %}
+</figure>
+{%- endfor %}
+</div>
+<div class="slideshow-controls" hidden>
+<button type="button" data-dir="-1" aria-label="Previous image">&#8249; Prev</button>
+<span class="slideshow-count" aria-live="polite"></span>
+<button type="button" data-dir="1" aria-label="Next image">Next &#8250;</button>
+</div>
+</div>

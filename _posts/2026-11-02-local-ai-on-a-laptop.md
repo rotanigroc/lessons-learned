@@ -2,20 +2,11 @@
 title: "A Local AI Host on an M1 Laptop: Model Serving, Sync, and Tuning"
 date: 2026-11-02 10:39:00 -0600
 corgi: at-the-laptop
----
-
-**Contents**
-
-1. [The idea](#the-idea)
-2. [The pieces](#the-pieces)
-3. [Why the sync is built the way it is](#why-the-sync-is-built-the-way-it-is)
-4. [Serving models: MTPLX instead of Ollama](#serving-models-mtplx-instead-of-ollama)
-5. [Running Claude Code against a local model](#running-claude-code-against-a-local-model)
-6. [The reasoning-model trap](#the-reasoning-model-trap)
-7. [Making a laptop behave like a server](#making-a-laptop-behave-like-a-server)
-8. [Small things that bit](#small-things-that-bit)
-9. [Takeaways](#takeaways)
-
+tldr:
+  - "An M1 Pro laptop with 32 GB became the main development and local-model host. A second laptop edits synced working trees."
+  - "Git has one master. Mutagen syncs the working trees without `.git`, and paths and the user are identical on both machines."
+  - "Models are served with MTPLX instead of Ollama, behind an API key, and Claude Code can run against them."
+  - "Reasoning models need a generous `max_tokens`, and a laptop only behaves like a server once sleep, memory limits and the indexer are dealt with."
 ---
 
 ## The idea
