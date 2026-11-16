@@ -2,22 +2,11 @@
 title: "Letting an AI Agent Operate Your Lab: The Guardrails That Kept It Safe"
 date: 2026-11-02 10:38:00 -0600
 corgi: guard
----
-
-**Contents**
-
-1. [The situation](#the-situation)
-2. [Rule 1: read-only by default](#rule-1-read-only-by-default)
-3. [Rule 2: a dry run, shown, before every write](#rule-2-a-dry-run-shown-before-every-write)
-4. [Rule 3: all remote changes go through one runner](#rule-3-all-remote-changes-go-through-one-runner)
-5. [Rule 4: every playbook can undo itself](#rule-4-every-playbook-can-undo-itself)
-6. [Rule 5: never print secrets, and never kill by name](#rule-5-never-print-secrets-and-never-kill-by-name)
-7. [Rule 6: keep output out of the repo](#rule-6-keep-output-out-of-the-repo)
-8. [Rule 7: when the sandbox says no, ask a human](#rule-7-when-the-sandbox-says-no-ask-a-human)
-9. [Making the rules load themselves](#making-the-rules-load-themselves)
-10. [Checks that run without being asked](#checks-that-run-without-being-asked)
-11. [Takeaways](#takeaways)
-
+tldr:
+  - "An AI agent did most of the hands-on work on a home lab for three weeks. Seven rules kept that safe."
+  - "Defaults do the most work: read-only first, a dry run shown before every write, and every remote change through one audited runner."
+  - "Every playbook can undo itself, secrets are never printed, processes are never killed by name, and a sandbox block means ask a human."
+  - "The rules load in every session by themselves, and scheduled checks fail loudly."
 ---
 
 ## The situation

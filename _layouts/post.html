@@ -1,7 +1,14 @@
 ---
 layout: default
 ---
-{%- comment -%} minima's post layout, plus the post's corgi (see STYLE_GUIDE.md) perched on the rule under the title. {%- endcomment -%}
+{%- comment -%}
+  minima's post layout, plus (see STYLE_GUIDE.md):
+  - the post's corgi perched on the rule under the title;
+  - a TL;DR box from the `tldr:` front matter, which is what a reader sees first;
+  - every `##` section folded into a <details> block, so the post opens as TL;DR + a list of section headings.
+    Text before the first `##` stays open. Posts need no markup for this: the layout splits the rendered content
+    on its <h2> tags.
+{%- endcomment -%}
 {%- assign corgi = site.data.corgis[page.corgi] -%}
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -23,8 +30,38 @@ layout: default
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+    {%- if page.tldr %}
+    <section class="tldr" aria-labelledby="tldr-heading">
+      <h2 id="tldr-heading">TL;DR</h2>
+      <ul>
+        {%- for item in page.tldr %}
+        <li>{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {%- endif %}
+
+    {%- assign chunks = content | split: "<h2 " -%}
+    {{ chunks[0] }}
+    {%- if chunks.size > 1 %}
+    <div class="post-sections">
+      {%- for chunk in chunks offset: 1 -%}
+        {%- assign open_tag = chunk | split: "</h2>" | first -%}
+        {%- assign id_parts = open_tag | split: '"' -%}
+        {%- assign section_id = id_parts[1] -%}
+        {%- assign heading = open_tag | remove_first: 'id="' | remove_first: section_id | remove_first: '">' -%}
+        {%- assign body = chunk | remove_first: open_tag | remove_first: "</h2>" %}
+      <details class="post-section">
+        <summary><h2 id="{{ section_id }}">{{ heading }}</h2></summary>
+        <div class="post-section-body">
+          {{ body }}
+        </div>
+      </details>
+      {%- endfor %}
+    </div>
+    {%- endif %}
   </div>
+  <script src="{{ "/assets/js/post.js" | relative_url }}" defer></script>
 
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}

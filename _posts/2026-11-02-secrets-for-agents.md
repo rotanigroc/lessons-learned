@@ -2,19 +2,11 @@
 title: "Secrets for Agents: A Scoped Vault, Wrapper Scripts, and Redaction by Default"
 date: 2026-11-02 10:37:00 -0600
 corgi: keycard
----
-
-**Contents**
-
-1. [The problem](#the-problem)
-2. [The design](#the-design)
-3. [Where the token lives (three tiers)](#where-the-token-lives-three-tiers)
-4. [Wrappers that keep secrets out of transcripts](#wrappers-that-keep-secrets-out-of-transcripts)
-5. [Permissions: allow, ask, deny](#permissions-allow-ask-deny)
-6. [Mistakes along the way](#mistakes-along-the-way)
-7. [Next: a local secrets server on its own VLAN](#next-a-local-secrets-server-on-its-own-vlan)
-8. [Takeaways](#takeaways)
-
+tldr:
+  - "Agents and automation get credentials from a dedicated vault through a service account, never the personal account."
+  - "The token lives in the strongest store each session can use, with a defined fallback order."
+  - "Wrapper scripts keep secrets off the command line and out of transcripts, redact output and default to a dry run. The permission file denies the unsafe tools."
+  - "Next step: a local secrets server on its own VLAN."
 ---
 
 ## The problem

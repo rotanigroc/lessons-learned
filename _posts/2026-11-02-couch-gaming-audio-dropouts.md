@@ -2,20 +2,11 @@
 title: "Couch Gaming on Linux: Chasing Audio Dropouts Through Four Layers"
 date: 2026-11-02 23:25:40 -0600
 corgi: puzzled
----
-
-**Contents**
-
-1. [The setup](#the-setup)
-2. [Symptom: audio hitching](#symptom-audio-hitching)
-3. [Layer 1: the GPU's memory clock](#layer-1-the-gpus-memory-clock)
-4. [Layer 2: surround sound the TV will not accept](#layer-2-surround-sound-the-tv-will-not-accept)
-5. [Layer 3: the encoder underruns](#layer-3-the-encoder-underruns)
-6. [Layer 4: the game itself, and a scheduler I had to back out](#layer-4-the-game-itself-and-a-scheduler-i-had-to-back-out)
-7. [The review that found free wins](#the-review-that-found-free-wins)
-8. [Old vs new, summarized](#old-vs-new-summarized)
-9. [Takeaways](#takeaways)
-
+tldr:
+  - "Audio hitches on a Linux gaming PC over HDMI turned out to be four separate problems, each hidden behind the last."
+  - "The fixes: pin the GPU memory clock, encode Dolby Digital in real time for the soundbar, match buffer periods to the codec frame, and give PipeWire its own realtime priority."
+  - "The last problem, whole-game stalls, was not audio at all. A custom scheduler tried for it made things worse and was reverted."
+  - "Write down what did not help: three popular fixes from the internet failed before the real one worked."
 ---
 
 ## The setup

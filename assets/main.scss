@@ -128,3 +128,86 @@ table { color: var(--text-soft); border-color: var(--border);
   .post-list-corgi { flex: 0 0 auto; display: block; height: 64px; width: auto; }
   @media screen and (max-width: 600px) { .post-list-corgi { height: 52px; } }
 }
+
+/* Post layout (STYLE_GUIDE.md, "Post layout"): TL;DR first, every ## section folded into a <details> block. */
+.tldr {
+  margin: 0 0 24px; padding: 14px 18px 4px;
+  background: var(--row-alt); border: 1px solid var(--border); border-left: 4px solid var(--link); border-radius: 6px;
+  h2 { font-size: 18px; margin: 0 0 8px; letter-spacing: 0.02em; color: var(--text); }
+  ul { margin-left: 20px; }
+  li { margin-bottom: 6px; }
+}
+
+.post-sections-toggle {
+  display: block; margin: 0 0 8px auto; padding: 6px 12px; min-height: 36px;
+  font: inherit; font-size: 15px; cursor: pointer;
+  color: var(--link); background: transparent;
+  border: 1px solid var(--border-strong); border-radius: 5px;
+  &:hover { border-color: var(--link); }
+  &:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+}
+
+.post-sections { border-top: 1px solid var(--border); margin-bottom: 30px; }
+
+.post-section {
+  border-bottom: 1px solid var(--border);
+  > summary {
+    display: flex; align-items: center; gap: 10px;
+    min-height: 44px; padding: 8px 4px; cursor: pointer; list-style: none;
+    &::-webkit-details-marker { display: none; }
+    /* Chevron: points right when closed, down when open */
+    &::before {
+      content: ""; flex: 0 0 auto; width: 8px; height: 8px; margin: 0 4px 0 2px;
+      border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+      transform: rotate(-45deg); transition: transform 0.15s ease;
+    }
+    h2 { margin: 0; font-size: 22px; line-height: 1.3; color: var(--text); }
+    &:hover h2 { color: var(--link); }
+    &:hover::before { border-color: var(--link); }
+    &:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
+  }
+  &[open] > summary::before { transform: rotate(45deg); }
+  > .post-section-body { padding: 4px 0 12px 26px; }
+  @media screen and (max-width: 600px) {
+    > summary h2 { font-size: 19px; }
+    > .post-section-body { padding-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { > summary::before { transition: none; } }
+}
+
+@media print {
+  .post-sections-toggle, .slideshow-controls { display: none !important; }
+  .post-section > summary::before { display: none; }
+}
+
+/* Slideshow (_includes/slideshow.html): a scroll-snap row of figures; post.js adds the buttons and counter. */
+.slideshow {
+  margin: 0 0 24px;
+  .slideshow-track {
+    display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+    &:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  }
+  .slide {
+    flex: 0 0 100%; margin: 0; scroll-snap-align: center;
+    img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 4px; }
+    figcaption { margin-top: 8px; font-size: 15px; color: var(--muted); font-style: italic; }
+  }
+  &.is-enhanced .slideshow-track { scrollbar-width: none; &::-webkit-scrollbar { display: none; } }
+  .slideshow-controls {
+    display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 10px;
+    &[hidden] { display: none; }
+    button {
+      min-width: 88px; min-height: 40px; padding: 6px 12px; font: inherit; font-size: 15px; cursor: pointer;
+      color: var(--text); background: transparent; border: 1px solid var(--border-strong); border-radius: 5px;
+      &:hover:not(:disabled) { border-color: var(--link); color: var(--link); }
+      &:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+      &:disabled { opacity: 0.4; cursor: default; }
+    }
+  }
+  .slideshow-count { font-size: 15px; color: var(--muted); min-width: 4.5em; text-align: center; }
+}
+@media (prefers-reduced-motion: no-preference) { .slideshow .slideshow-track { scroll-behavior: smooth; } }
+
+/* Wide tables scroll inside the column instead of widening the page on phones (now that they sit in section bodies). */
+.post-content table { display: block; max-width: 100%; overflow-x: auto; }

@@ -1,4 +1,4 @@
-# Blog style guide: the post corgi
+# Blog style guide: the post corgi and the post layout
 
 Every post on this blog gets a pixel corgi whose expression fits what the post is about. The corgi is the rotanigroc
 character from the asset style guide (`rotanigroc_asset_style_guide.md`, kept outside this repo): a Pembroke Welsh corgi
@@ -123,3 +123,64 @@ These follow the asset guide's colours and outline rules, adapted to a blog head
 The cut-outs in this repo were made from the error-page badges this way, with the status digits and caption cropped off.
 The stickers came from the two reaction sheets (`Reaction-Sheet-1.png`, `Reaction-Sheet-2.png`); full-size keyed copies
 of all twelve are in `Rotanigroc-PixelCorgi/stickers/`.
+
+## 7. Post layout: TL;DR first, details folded
+
+A reader sees the TL;DR first and opens only the parts they want. `_layouts/post.html` does this for every post, so a post
+needs no special markup:
+
+- **TL;DR box.** The `tldr:` front matter list is shown in a box under the header. Every post must have one.
+- **Folded sections.** Every `##` section becomes a `<details>` block, closed by default, with the heading as the
+  clickable summary. Text before the first `##` stays open, so keep that intro to a paragraph or two.
+- **No Contents list.** The folded headings are the table of contents. Links to `#a-heading` (from this post or another)
+  open that section by themselves, an "Expand all sections" button sits above the list, and printing opens everything.
+  Everything works without JavaScript except the button.
+
+```yaml
+---
+title: "Your Title"
+date: 2026-11-05 14:30:00 -0600
+corgi: magnifier
+tldr:
+  - "What happened, in one sentence."
+  - "What fixed it, or what was built."
+  - "The result, with a number if there is one."
+  - "The one lesson to take away."
+---
+```
+
+TL;DR rules:
+
+- Three or four bullets, one or two sentences each. Quote every bullet (Markdown such as `code` works inside).
+- Problem, fix or design, result, lesson. A reader who stops after the TL;DR should know what the post found.
+- It is not a copy of the Takeaways section: Takeaways are the general rules, the TL;DR is what happened here.
+- Same sanitizing rules as the body (see `about.md`).
+
+Keep `##` for sections and `###` for parts inside them. A post with no `##` headings simply shows as one open page.
+
+### Slideshows for image progressions
+
+When a post shows a run of images that build on each other (prompt by prompt, before and after, step by step), put
+them in one slideshow instead of a column of images. Single images stay plain Markdown images.
+
+List the slides in the front matter under `slideshows:`, then place the include where the run belongs:
+
+```yaml
+slideshows:
+  explore:
+    - src: /assets/posts/<post>/01-first.webp
+      width: 1024
+      height: 572
+      alt: "What the image shows, for someone who cannot see it"
+      caption: "Prompt: \"...\" → what came back."
+```
+
+```liquid
+{% include slideshow.html slides=page.slideshows.explore label="From four concepts to one look" %}
+```
+
+- Every slide needs `alt` text and its real `width`/`height`. The caption says what changed in that step.
+- `label` names the slideshow for screen readers. Two to eight slides per show.
+- Put the include on its own line with a blank line before and after it.
+- Without JavaScript it is a row of images that scrolls sideways; `assets/js/post.js` adds Prev/Next, an "n of m"
+  counter and arrow-key support. Swipe works on phones either way.

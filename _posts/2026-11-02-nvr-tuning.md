@@ -2,18 +2,11 @@
 title: "NVR Tuning: From a Pegged GPU to a Quiet, Useful Alert Stream"
 date: 2026-11-02 10:31:00 -0600
 corgi: on-fire
----
-
-**Contents**
-
-1. [Part 1: why was the GPU busy?](#part-1-why-was-the-gpu-busy)
-2. [Part 2: motion tuning, before and after](#part-2-motion-tuning-before-and-after)
-3. [Part 3: small animals, and the trap in your own measurements](#part-3-small-animals-and-the-trap-in-your-own-measurements)
-4. [Part 4: alerts people want](#part-4-alerts-people-want)
-5. [Part 5: seeing license plates](#part-5-seeing-license-plates)
-6. [The bill comes due](#the-bill-comes-due)
-7. [Takeaways](#takeaways)
-
+tldr:
+  - "A six-camera NVR's busy GPU was the object detector running too often, not video decode."
+  - "Measuring detections per camera and tuning motion on the worst offender calmed it down. Alert thresholds were calibrated from the NVR's own event history."
+  - "Alerts now cover what people want (a car alert only after a 30-second dwell), and plates are readable at a bigger frame size, with every pixel setting scaled to match."
+  - "Every new capability cost memory, and that bill came due later."
 ---
 
 A six-camera NVR with object detection on an integrated GPU. It worked, but the GPU was busy for no obvious reason, the alerts were mostly noise, and plates were unreadable. This post covers the measured fixes, in the order I did them.

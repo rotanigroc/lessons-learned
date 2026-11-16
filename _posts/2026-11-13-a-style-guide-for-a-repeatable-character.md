@@ -3,21 +3,76 @@ title: "The Same Corgi Every Time: A Style Guide That Makes Nano Banana Repeatab
 date: 2026-11-13 11:00:00 -0600
 tags: [ai, image-generation, gemini, style-guide, pixel-art, design]
 corgi: idea
----
-
-**Contents**
-
-1. [Where it started](#where-it-started)
-2. [Explore wide, then lock one look](#explore-wide-then-lock-one-look)
-3. [Change one thing per prompt, and name it](#change-one-thing-per-prompt-and-name-it)
-4. ["Transparent background" is a picture of a checkerboard](#transparent-background-is-a-picture-of-a-checkerboard)
-5. [Write the style guide after the look is locked](#write-the-style-guide-after-the-look-is-locked)
-6. [The second draft is the one to keep](#the-second-draft-is-the-one-to-keep)
-7. [Running the guide: check every image against it](#running-the-guide-check-every-image-against-it)
-8. [Sticker sheets and keying out the green](#sticker-sheets-and-keying-out-the-green)
-9. [Two guides, not one](#two-guides-not-one)
-10. [Takeaways](#takeaways)
-
+tldr:
+  - "A pixel-art corgi stayed the same character across an avatar, a banner, error pages and twelve stickers because of a written style guide."
+  - "How: explore wide, pick by label, change one thing per prompt, and write the guide only once the look is locked, with fixed colour tokens and a fill-in-the-blanks prompt."
+  - "Never ask an image model for a transparent background. Ask for flat `#00FF00`, key it out with a script, and keep a 2 px white outline."
+  - "Check every batch against the guide: even with it, one code went missing and one image lost its outline."
+slideshows:
+  explore:
+    - src: /assets/posts/nanobanana/01-options-sheet.webp
+      width: 1024
+      height: 572
+      alt: "Options sheet with four corgi avatar concepts: cyberpunk, retro pixel, flat vector and terminal hacker"
+      caption: "Prompt: \"Give me some design options for an avatar with a coding corgi\" → four concepts on one sheet."
+    - src: /assets/posts/nanobanana/02-option-2-variants.webp
+      width: 1024
+      height: 572
+      alt: "Four pixel-art variants of option 2: cyberpunk palette, chill lo-fi, matrix glitch and outrun arcade"
+      caption: "Prompt: \"Give me some variants on option 2\" → four labelled variants. 2B, top right, became the character."
+    - src: /assets/posts/nanobanana/03-circle-options.webp
+      width: 1024
+      height: 572
+      alt: "Sheet of eight round chill lo-fi corgi badges, four with the name and four without, most in pastel blue headphones"
+      caption: "Prompt: \"Use 2B as the main vibe - give me circle options with and without the rotanigroc name\" → eight badges, with the headphones still mostly pastel blue."
+  lock:
+    - src: /assets/posts/nanobanana/05-circles-rainbow-glasses.webp
+      width: 1024
+      height: 572
+      alt: "Two round badges of the corgi in rainbow glasses and black headphones at a laptop, one with the name in purple pixel font and one without"
+      caption: "Prompt: \"I wan the 2B vibe but with rainbow framed glasses and black headphones. Give me 2 circle variants - 1 with the name in vaporwave purple font and the other with no name\" → the avatar, both versions."
+    - src: /assets/posts/nanobanana/06-full-scene-one-corgi.webp
+      width: 1024
+      height: 572
+      alt: "Wide night-time bedroom scene with one corgi at a laptop, a CRT monitor on the left and the name in purple along the bottom"
+      caption: "Prompt: \"Give me the full 2B image but with the changes to the glasses/headphones and just 1 corgi at the table\" → the wide scene."
+    - src: /assets/posts/nanobanana/07-pc-tower.webp
+      width: 1024
+      height: 572
+      alt: "The same scene with the monitor replaced by an open PC tower and loose parts on the desk"
+      caption: "Prompt: \"Replace the monitor with a taken apart PC tower\" → one change, everything else kept."
+    - src: /assets/posts/nanobanana/08-scene-no-name.webp
+      width: 1024
+      height: 572
+      alt: "The same scene with the name removed and the desk filling the bottom of the frame"
+      caption: "Prompt: \"Excellent - give me the same image without the name on the bottom\" → the clean banner."
+  keying:
+    - src: /assets/posts/nanobanana/09-first-error-icons.webp
+      width: 1024
+      height: 572
+      alt: "Two-by-two grid of busy error-page scenes for 404, 403, 502 and 504 in the night-time bedroom"
+      caption: "Prompt: \"Use the corgi design we've decided on to make icons for error pages e.g. 404, 403, 501, etc\" → four full scenes, too busy for an icon."
+    - src: /assets/posts/nanobanana/10-transparent-checkerboard.webp
+      width: 1024
+      height: 572
+      alt: "Error icons 404, 403, 501 and 502 with the corgi on the digits, on a dark checkerboard that is part of the image"
+      caption: "Prompt: \"Simplify - just the error code and the corgi sitting on top of the text - transparent background\" → a checkerboard painted into an opaque image."
+    - src: /assets/posts/nanobanana/11-chroma-green-icons.webp
+      width: 1024
+      height: 572
+      alt: "The same four error icons on flat bright green"
+      caption: "Prompt: \"Instead of the not-actually-transparent checkerboard - set the background to a value that's easily keyed out using MacOS's Preview “Remove Background” feature\" → flat #00FF00, ready to key."
+  stickers:
+    - src: /assets/posts/nanobanana/13-sticker-sheet-1.webp
+      width: 1024
+      height: 572
+      alt: "Sticker sheet of six corgi poses on green: cheering, typing, investigating, panicking, idea and coffee"
+      caption: "Prompt: \"I'm writing blog posts about various tech projects. Give me some accent art…\" → cheering, typing, investigating, panicking, idea, coffee."
+    - src: /assets/posts/nanobanana/14-sticker-sheet-2.webp
+      width: 1024
+      height: 572
+      alt: "Second sticker sheet of six corgi poses on green: planning, upgrade, key and shield, waiting, flashlight and success"
+      caption: "Prompt: \"Those are great, give me another 6 different expressions\" → planning, upgrade, key and shield, waiting, flashlight, success."
 ---
 
 The corgi at the top of every post on this blog is a single character. It is a Pembroke Welsh corgi in rainbow-frame glasses and black over-ear headphones, drawn as 16-bit pixel art. It started as a profile avatar. Since then it has also become a desktop banner, the error pages in front of the home lab (400 through 504), and twelve reaction stickers. All of it came out of one Gemini conversation using its image model, Nano Banana. Most of the images look like the same dog.
@@ -34,10 +89,6 @@ My coding handle is "corginator" in reverse. Give me some design options for an 
 
 It came back as one sheet with four concepts: a cyberpunk developer, a retro vaporwave pixel corgi, a flat vector corgi, and a hooded CLI hacker. Each had a different palette, medium and font. That is the right first step, but none of these is a character yet. They are four different dogs.
 
-![Options sheet with four corgi avatar concepts: cyberpunk, retro pixel, flat vector and terminal hacker]({{ "/assets/posts/nanobanana/01-options-sheet.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Give me some design options for an avatar with a coding corgi" → four concepts on one sheet.*
-
 ## Explore wide, then lock one look
 
 The next two prompts narrowed it down:
@@ -47,13 +98,7 @@ The next two prompts narrowed it down:
 
 From there, each prompt narrowed it further. The useful habit was to **pick a winner by its label** ("2B") instead of describing it again. The label points at one image, while a description can match several.
 
-![Four pixel-art variants of option 2: cyberpunk palette, chill lo-fi, matrix glitch and outrun arcade]({{ "/assets/posts/nanobanana/02-option-2-variants.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Give me some variants on option 2" → four labelled variants. 2B, top right, became the character.*
-
-![Sheet of eight round chill lo-fi corgi badges, four with the name and four without, most in pastel blue headphones]({{ "/assets/posts/nanobanana/03-circle-options.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Use 2B as the main vibe - give me circle options with and without the rotanigroc name" → eight badges, with the headphones still mostly pastel blue.*
+{% include slideshow.html slides=page.slideshows.explore label="From four concepts to one look" %}
 
 ## Change one thing per prompt, and name it
 
@@ -69,21 +114,7 @@ Locking the look took a chain of small edits, each building on the last image:
 
 Each prompt changed one thing and kept the rest, so when something came back wrong, it was clear which change caused it.
 
-![Two round badges of the corgi in rainbow glasses and black headphones at a laptop, one with the name in purple pixel font and one without]({{ "/assets/posts/nanobanana/05-circles-rainbow-glasses.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "I wan the 2B vibe but with rainbow framed glasses and black headphones. Give me 2 circle variants - 1 with the name in vaporwave purple font and the other with no name" → the avatar, both versions.*
-
-![Wide night-time bedroom scene with one corgi at a laptop, a CRT monitor on the left and the name in purple along the bottom]({{ "/assets/posts/nanobanana/06-full-scene-one-corgi.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Give me the full 2B image but with the changes to the glasses/headphones and just 1 corgi at the table" → the wide scene.*
-
-![The same scene with the monitor replaced by an open PC tower and loose parts on the desk]({{ "/assets/posts/nanobanana/07-pc-tower.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Replace the monitor with a taken apart PC tower" → one change, everything else kept.*
-
-![The same scene with the name removed and the desk filling the bottom of the frame]({{ "/assets/posts/nanobanana/08-scene-no-name.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Excellent - give me the same image without the name on the bottom" → the clean banner.*
+{% include slideshow.html slides=page.slideshows.lock label="One change per prompt" %}
 
 The one miss in this stretch came from **pointing at an image by its position**. "Take the 2nd image (black headphones) but use the pink font from the first image" was sent, then sent again reworded. Both times the model redrew the whole eight-badge sheet, recolouring a few headphones, instead of returning one badge in two versions. The request was then dropped for a prompt that said what was wanted ("rainbow framed glasses and black headphones ... name in vaporwave purple font"). Once there are a dozen images in the thread, "the 2nd image" is not a clear reference for you or for the model.
 
@@ -108,15 +139,7 @@ Version 1: "rotanigroc" along the bottom in the vaporwave purple pixel font. Ver
 
 The first error-page icons (404, 403, 502, 504) came as busy scenes, so the next prompt was "just the error code and the corgi sitting on top of the text - transparent background".
 
-![Two-by-two grid of busy error-page scenes for 404, 403, 502 and 504 in the night-time bedroom]({{ "/assets/posts/nanobanana/09-first-error-icons.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Use the corgi design we've decided on to make icons for error pages e.g. 404, 403, 501, etc" → four full scenes, too busy for an icon.*
-
 The result had a dark checkerboard drawn into the pixels. Image models output flat RGB images. When you ask for transparency, you get a picture of the checkerboard that editors use to show transparency.
-
-![Error icons 404, 403, 501 and 502 with the corgi on the digits, on a dark checkerboard that is part of the image]({{ "/assets/posts/nanobanana/10-transparent-checkerboard.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Simplify - just the error code and the corgi sitting on top of the text - transparent background" → a checkerboard painted into an opaque image.*
 
 The fix was to stop asking for transparency and ask for something easy to remove:
 
@@ -132,9 +155,7 @@ The fix was to stop asking for transparency and ask for something easy to remove
 ... on a solid pure flat chroma green #00FF00 background ... no shadows cast onto the green background.
 ```
 
-![The same four error icons on flat bright green]({{ "/assets/posts/nanobanana/11-chroma-green-icons.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Instead of the not-actually-transparent checkerboard - set the background to a value that's easily keyed out using MacOS's Preview “Remove Background” feature" → flat #00FF00, ready to key.*
+{% include slideshow.html slides=page.slideshows.keying label="From busy scenes to a keyable green background" %}
 
 A green screen with no shadows on it can be keyed out in one click in macOS Preview (Instant Alpha) or with a short script. Then the keyed image needs an outline, which went into the guide as a hard rule: a **2 px solid white border around all lettering and props**. Without it, black headphones and dark outlines vanish on a dark page once the green is gone.
 
@@ -208,17 +229,7 @@ I'm writing blog posts about various tech projects. Give me some accent art usin
 that would be useful for various expressions
 ```
 
-![Sticker sheet of six corgi poses on green: cheering, typing, investigating, panicking, idea and coffee]({{ "/assets/posts/nanobanana/13-sticker-sheet-1.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "I'm writing blog posts about various tech projects. Give me some accent art…" → cheering, typing, investigating, panicking, idea, coffee.*
-
-```text
-Those are great, give me another 6 different expressions
-```
-
-![Second sticker sheet of six corgi poses on green: planning, upgrade, key and shield, waiting, flashlight and success]({{ "/assets/posts/nanobanana/14-sticker-sheet-2.webp" | relative_url }}){: width="1024" height="572" loading="lazy"}
-
-*Prompt: "Those are great, give me another 6 different expressions" → planning, upgrade, key and shield, waiting, flashlight, success.*
+{% include slideshow.html slides=page.slideshows.stickers label="The two sticker sheets" %}
 
 The model's own image prompt for these, which the conversation shows with each image, carried the guide's rules over without being asked: "2x3 grid", "flat, solid chroma green background (#00FF00)", "a crisp, prominent 2-pixel white outline surrounding its entire shape", "No text is rendered anywhere in the image", "arranged neatly with generous spacing ... ensuring no overlapping". The guide was in the conversation, and it showed up in the prompt.
 

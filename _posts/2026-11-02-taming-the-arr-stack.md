@@ -2,19 +2,11 @@
 title: "Taming the *arr Stack: Stuck Imports, Duplicate Grabs, and Delay Profiles"
 date: 2026-11-02 10:36:00 -0600
 corgi: waiting
----
-
-**Contents**
-
-1. [Symptoms](#symptoms)
-2. [Cause 1: the episode-title rule](#cause-1-the-episode-title-rule)
-3. [Cause 2: a zero-minute delay](#cause-2-a-zero-minute-delay)
-4. [Cause 3: names the parser cannot match](#cause-3-names-the-parser-cannot-match)
-5. [A red herring worth ruling out](#a-red-herring-worth-ruling-out)
-6. [Old vs new](#old-vs-new)
-7. [What I did not fix](#what-i-did-not-fix)
-8. [Takeaways](#takeaways)
-
+tldr:
+  - "Seven episodes stuck as `importBlocked` and a movie downloaded ten times came from three separate settings."
+  - "The causes: an always-on episode-title rule, a zero-minute delay profile, and release names the parser could not match."
+  - "The fix: wait a couple of hours before grabbing, bypass the wait with a score threshold, and limit the title rule to bulk releases."
+  - "Verify a suspected cause with a count before acting on it, and list what you did not fix."
 ---
 
 A self-hosted TV and movie automation stack (Sonarr and Radarr, a Usenet downloader, a transcoder). Seven items sat in the queue in an `importBlocked` state, and every one of those episodes **already had a file**. Meanwhile one movie had been downloaded ten times.

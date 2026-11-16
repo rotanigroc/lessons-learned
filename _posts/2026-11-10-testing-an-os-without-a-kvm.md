@@ -2,21 +2,11 @@
 title: "Testing a Hobby OS on Real Hardware Without a KVM: QEMU, PXE and SSH"
 date: 2026-11-10 12:15:00 -0600
 corgi: blueprint
----
-
-**Contents**
-
-1. [The problem](#the-problem)
-2. [Two loops, one contract](#two-loops-one-contract)
-3. [Loop 1: QEMU on every change](#loop-1-qemu-on-every-change)
-4. [Loop 2: the real laptop, driven by the network](#loop-2-the-real-laptop-driven-by-the-network)
-5. [The answer file: one reboot updates the disk](#the-answer-file-one-reboot-updates-the-disk)
-6. [Knowing which build answered](#knowing-which-build-answered)
-7. [Bugs only the real machine found](#bugs-only-the-real-machine-found)
-8. [Updating without a netboot, and the trap in it](#updating-without-a-netboot-and-the-trap-in-it)
-9. [Smaller lessons](#smaller-lessons)
-10. [Takeaways](#takeaways)
-
+tldr:
+  - "A hobby OS written in Rust is tested on every change in QEMU, and on a real laptop that nobody touches, without an IP KVM."
+  - "Both loops use the same text interface, wait for lines (never for time), and stop on the first failure line."
+  - "Network boot first plus a per-machine menu entry works as a cheap KVM, and each build reports its commit so the test knows which build answered."
+  - "Real hardware found network and timing bugs the emulator hid. Each one became an emulator test."
 ---
 
 ## The problem
