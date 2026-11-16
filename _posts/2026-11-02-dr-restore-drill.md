@@ -1,6 +1,7 @@
 ---
 title: "A Disaster-Recovery Drill That Actually Boots the Guests"
 date: 2026-11-02 10:34:00 -0600
+tags: [homelab, storage]
 corgi: success
 tldr:
   - "The drill restores from the encrypted off-site copy, not the local one, into spare guests that must actually boot."

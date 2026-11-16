@@ -1,6 +1,7 @@
 ---
 title: "Secrets for Agents: A Scoped Vault, Wrapper Scripts, and Redaction by Default"
 date: 2026-11-02 10:37:00 -0600
+tags: [ai, security, homelab]
 corgi: keycard
 tldr:
   - "Agents and automation get credentials from a dedicated vault through a service account, never the personal account."

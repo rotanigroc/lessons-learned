@@ -1,6 +1,7 @@
 ---
 title: "Old vs New: Seven Config Changes From a Homelab (and the Tools Around It)"
 date: 2026-11-02 09:51:46 -0600
+tags: [homelab]
 corgi: typing
 tldr:
   - "Seven small config changes from a home lab, each shown as the old config next to the new one, with the reason for the change."

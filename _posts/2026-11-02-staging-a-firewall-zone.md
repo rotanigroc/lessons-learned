@@ -1,6 +1,7 @@
 ---
 title: "A New Firewall Zone Blocked Everything: Staging Network Segmentation Safely"
 date: 2026-11-02 10:30:00 -0600
+tags: [homelab, networking, security]
 corgi: guard
 tldr:
   - "Moving smart-home devices into their own firewall zone caused a 90-second outage, because a new zone blocks all traffic by default, even to itself."

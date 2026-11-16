@@ -1,7 +1,7 @@
 ---
 title: "A Self-Hosted Secrets Server on Its Own VLAN: 1Password Connect in Homelab Automation"
 date: 2026-11-05 02:20:00 -0600
-tags: [secrets, 1password, networking, proxmox, automation]
+tags: [homelab, security, networking]
 corgi: key-and-shield
 tldr:
   - "Agents now read credentials from a self-hosted 1Password Connect server on its own VLAN, which keeps them clear of the service account's rate limits."

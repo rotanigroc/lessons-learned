@@ -23,6 +23,7 @@ layout: default
         {%- if page.author -%}
           • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
         {%- endif -%}</p>
+      {%- include post-tags.html tags=page.tags %}
     </div>
     {%- if corgi %}
     <img class="post-corgi" src="{{ "/assets/corgis/" | append: page.corgi | append: ".png" | relative_url }}" width="{{ corgi.width }}" height="240" alt="{{ corgi.alt | escape }}">

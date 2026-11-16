@@ -1,7 +1,7 @@
 ---
 title: "The Same Corgi Every Time: A Style Guide That Makes Nano Banana Repeatable"
 date: 2026-11-13 11:00:00 -0600
-tags: [ai, image-generation, gemini, style-guide, pixel-art, design]
+tags: [ai]
 corgi: idea
 tldr:
   - "A pixel-art corgi stayed the same character across an avatar, a banner, error pages and twelve stickers because of a written style guide."

@@ -1,6 +1,7 @@
 ---
 title: "A Local AI Host on an M1 Laptop: Model Serving, Sync, and Tuning"
 date: 2026-11-02 10:39:00 -0600
+tags: [ai, homelab]
 corgi: at-the-laptop
 tldr:
   - "An M1 Pro laptop with 32 GB became the main development and local-model host. A second laptop edits synced working trees."
